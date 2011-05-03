@@ -1,14 +1,32 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
-  <body style="background-color:#eeeeee">
-    <h1>Seam University</h1>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>  
+    <title>Seam University</title>
+    <link href="style/default.css" rel="stylesheet" type="text/css"/>
+    <link REL="SHORTCUT ICON" HREF="/favicon.ico"/>
+    <ui:insert name="head"/>
+  </head>
+  <body>
+    <div id="main">
+      <div id="header">
+        <div id="logo"/>
+      </div>
+      
+      <div id="container">
+        <div class="content-wide">
+           content
+        </div>
+      </div>
+    </div>
+    
+  </body>  
   
-    <div id="container" style="border:1px solid black;width:75%;height:75%"></div>
-    
-    <script src="xwidgets/resources/xw.js"></script>      
-    <script type="text/javascript">           
-      xw.setResourceBase("xwidgets/resources/");
-      //xw.openView("main.xw", "container");      
-    </script>
-    
-  </body>
+  <script src="xwidgets/resources/xw.js"></script>      
+  <script type="text/javascript">           
+    xw.setResourceBase("xwidgets/resources/");
+    //xw.openView("main.xw", "container");      
+  </script>
+  
 </html>
