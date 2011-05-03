@@ -1,0 +1,12 @@
+apply plugin: 'war'
+
+group = "org.jboss.seam.university"
+
+war {
+  archiveName = "seam-university.war"
+}
+
+dependencies {
+   providedCompile 'org.jboss.spec.javax.servlet:jboss-servlet-api_3.0_spec:1.0.0.Final', 
+                   'javax.enterprise:cdi-api:1.0-SP4'
+}
