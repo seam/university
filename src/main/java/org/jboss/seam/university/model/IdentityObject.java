@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import org.jboss.seam.security.annotations.management.IdentityProperty;
 import org.jboss.seam.security.annotations.management.PropertyType;
@@ -24,6 +25,7 @@ public class IdentityObject implements Serializable
    private Long id;
    private String name;
    private IdentityObjectType type;
+   @OneToOne private Member member;
    
    @Id @GeneratedValue
    public Long getId()
@@ -57,6 +59,14 @@ public class IdentityObject implements Serializable
    public void setType(IdentityObjectType type)
    {
       this.type = type;
+   }
+   
+   public Member getMember() {
+       return member;
+   }
+   
+   public void setMember(Member member) {
+       this.member = member;
    }
 
 }
