@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view xmlns="http://xwidgets.org/core">
+  <link className="menu" caption="learn"/>
+  <link className="menu" caption="share"/>
+  <link className="menu" caption="about"/>
+  <link className="menu" caption="settings"/>
+  <link className="menu" caption="profile"/>
+  <link className="menu" caption="feeds"/>
+</view>
