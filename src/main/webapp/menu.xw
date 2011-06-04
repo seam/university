@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xw:view xmlns="http://www.w3.org/1999/xhtml" xmlns:xw="http://xwidgets.org/core">
-  <xw:link className="menu" caption="learn"/>
+  <xw:link styleClass="menu" caption="learn"/>
 
-  <xw:link className="menu" caption="share">
+  <xw:link styleClass="menu" caption="share">
     <xw:event type="onclick">
       <xw:action type="script">xw.openView("share.xw", "main")</xw:action>
     </xw:event>
   </xw:link>  
   
-  <xw:link className="menu" caption="about"/>
-  <xw:link className="menu" caption="settings"/>
-  <xw:link className="menu" caption="profile"/>
-  <xw:link className="menu" caption="feeds"/>
+  <xw:link styleClass="menu" caption="about"/>
+  <xw:link styleClass="menu" caption="settings"/>
+  <xw:link styleClass="menu" caption="profile"/>
+  <xw:link styleClass="menu" caption="feeds"/>
 </xw:view>

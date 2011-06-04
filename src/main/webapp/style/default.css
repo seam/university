@@ -61,6 +61,7 @@ body {
 }
 
 #main {
+  margin-top: 12px;
   padding: 8px 12px 8px 12px;
 }
 
@@ -75,7 +76,8 @@ div#menu {
   -webkit-border-radius: 10px;
   -khtml-border-radius: 10px;
   border-radius: 10px;
-  padding: 8px;
+  padding: 2px 8px 6px 8px;
+  margin-top: 4px;
 }
 
 a.menu, a.menu:visited {
@@ -99,3 +101,54 @@ a.menu:hover {
   color: #ebab6d;
 }
 
+/* CSS Styles for Sliding Door buttons */		
+button { 
+	position: relative;
+	border: 0; 
+	padding: 0;
+	cursor: pointer;
+	overflow: visible; /* removes extra side padding in IE */
+}
+
+button::-moz-focus-inner {
+	border: none;  /* overrides extra padding in Firefox */
+}
+
+button span { 
+	position: relative;
+	display: block; 
+	white-space: nowrap;	
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	/* Safari and Google Chrome only - fix margins */
+	button span {
+		margin-top: -1px;
+	}
+}
+
+
+/* OPTIONAL BUTTON STYLES for applying custom look and feel: */		
+button.submit { 
+	padding: 0 15px 0 0; 
+	margin-right:5px; 
+	font-size:1em; 
+	text-align: center; 
+	background: transparent url(button_bg.png) no-repeat right -74px; 
+}
+	
+button.submit span {
+	padding: 6px 0 0 15px; 
+	height:27px; 
+	background: transparent url(button_bg.png) no-repeat left top; 
+	color:#ffffff; 
+}
+	
+button.submit:hover, button.submitHover { 
+/* the redundant class is used to apply the hover state with a script */
+	background-position: right -111px; 
+}
+	
+button.submit:hover span, button.submitHover span {
+	background-position: 0 -37px;
+}
