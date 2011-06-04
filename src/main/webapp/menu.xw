@@ -4,7 +4,7 @@
 
   <xw:link styleClass="menu" caption="share">
     <xw:event type="onclick">
-      <xw:action type="script">xw.openView("share.xw", "main")</xw:action>
+      <xw:action type="script">xw.openView("share.xw", "content")</xw:action>
     </xw:event>
   </xw:link>  
   
