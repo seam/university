@@ -14,12 +14,19 @@ html, body {
   height: 100%;
 }
 
+h2 {
+  font-family: "abeatbyKaiRegular", sans-serif;
+  font-size: 25px;
+  letter-spacing: 6px;
+  color: #653c1b;  
+}
+
 body { 
   margin:0px;
   background: url(page_background.png) top left repeat-x;
   background-color: #ffffff;
-  font-family: "abeatbyKaiRegular",sans-serif;
-  font-size: 12px;
+  font-family: helvetica, arial, verdana, sans-serif;
+  font-size: 1em;
   color: #000000;
 }
 
@@ -46,15 +53,29 @@ body {
 #content {
   position: absolute;
   top: 82px;
-  padding: 8px 8px 8px 8px; 
+  padding: 8px 8px 8px 8px;
   min-height: 120px;
   width: 800px;  
   overflow: auto;
   background: url(content_header.png) top left no-repeat;
 }
 
+#main {
+  padding: 8px 12px 8px 12px;
+}
+
 div#menu {
   height: 22px;
+}
+
+.wizard {
+  background-color: #f5f5f5;
+  border: 1px solid #cccccc;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -khtml-border-radius: 10px;
+  border-radius: 10px;
+  padding: 8px;
 }
 
 a.menu, a.menu:visited {

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xw:view xmlns="http://www.w3.org/1999/xhtml" xmlns:xw="http://xwidgets.org/core">
+
+  <div class="wizard">
+  <h2>Share Content</h2>
+
+  <p>
+    Thank you for choosing to share your Seam knowledge with others! This wizard will walk you through
+    the process of submitting your Seam-related content to Seam University.
+  </p>
+  
+  <p>
+    Please start by selecting the type of content that you would like to share:
+  </p>
+  
+  
+  <xw:button label="Continue"/>
+  </div>
+</xw:view>
