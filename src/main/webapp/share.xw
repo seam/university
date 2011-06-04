@@ -2,18 +2,27 @@
 <xw:view xmlns="http://www.w3.org/1999/xhtml" xmlns:xw="http://xwidgets.org/core">
 
   <div class="wizard">
-  <h2>Share Content</h2>
+    <h1>Share Content</h1>
 
-  <p>
-    Thank you for choosing to share your Seam knowledge with others! This wizard will walk you through
-    the process of submitting your Seam-related content to Seam University.
-  </p>
-  
-  <p>
-    Please start by selecting the type of content that you would like to share:
-  </p>
-  
-  
-  <xw:button label="Continue" styleClass="submit"/>
+    <p>
+      Thank you for choosing to share your Seam knowledge with others! This wizard will walk you through
+      the process of submitting your Seam-related content to Seam University.
+    </p>
+    
+    <p>
+      Please start by selecting the type of content that you would like to share:
+    </p>
+    
+    <select name="category">
+      <option value="1">Article</option>
+      <option value="2">FAQ</option>
+      <option value="3">Tip</option>
+    </select>
+    
+    <xw:button label="Continue" styleClass="submit">
+      <xw:event type="onclick">
+        <xw:action type="script">alert("Continue")</xw:action>
+      </xw:event>    
+    </xw:button>
   </div>
 </xw:view>
