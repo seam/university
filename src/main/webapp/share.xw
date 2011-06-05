@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xw:view xmlns="http://www.w3.org/1999/xhtml" xmlns:xw="http://xwidgets.org/core">
+<xw:view xmlns="http://www.w3.org/1999/xhtml" 
+ xmlns:xw="http://xwidgets.org/core"
+ xmlns:seam="http://seam.jboss.org/xwidgets">
 
   <h1>Share Content</h1>
 
@@ -19,15 +21,18 @@
   </ul>
   
   <p>
-    Please start by selecting the type of content that you would like to submit:
+    To get started, please select the type of content that you would like to submit:
   </p>
   
-  <select name="category">
-    <option value="1">Article</option>
-    <option value="2">Blog</option>
-    <option value="3">FAQ</option>
-    <option value="4">Tip</option>
-  </select>
+  <!--seam:remoteMethodDataSet id="categoryList" method="categorySearch.listCategories"/>
+  <xw:dataSource id="categoryDatasource" dataSet="categoryList"/-->
+  
+  <xw:select id="selectedCategory">
+    <xw:selectItems dataSource="categoryDatasource"
+                    var="category"
+                    itemValue="category.id"
+                    itemLabel="category.name"/>
+  </xw:select>
   
   <xw:button label="Continue" styleClass="submit">
     <xw:event type="onclick">
