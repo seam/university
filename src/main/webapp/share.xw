@@ -28,10 +28,13 @@
   <xw:dataSource id="categoryDatasource" dataSet="categoryList"/-->
   
   <xw:select id="selectedCategory">
-    <xw:selectItems dataSource="categoryDatasource"
+    <xw:selectItem value="1" text="Article"/>
+    <xw:selectItem value="2" text="Blog"/>
+    <xw:selectItem value="3" text="FAQ"/>
+    <!--xw:selectItems dataSource="categoryDatasource"
                     var="category"
                     itemValue="category.id"
-                    itemLabel="category.name"/>
+                    itemLabel="category.name"/-->
   </xw:select>
   
   <xw:button label="Continue" styleClass="submit">
