@@ -2,6 +2,10 @@
 <xw:view xmlns="http://www.w3.org/1999/xhtml" 
  xmlns:xw="http://xwidgets.org/core"
  xmlns:seam="http://seam.jboss.org/xwidgets">
+ 
+  <xw:event type="afterRender">
+    <xw:action type="script"><![CDATA[categoryList.open();]]></xw:action>
+  </xw:event>     
 
   <h1>Share Content</h1>
 
@@ -26,14 +30,8 @@
   
   <seam:remoteMethodDataSet id="categoryList" remoteClass="org.jboss.seam.university.action.CategorySearch" remoteMethod="listCategories"/>
   
-  <xw:dataSource id="categoryDatasource" dataSet="#{categoryList}"/>
-  
-  <xw:button label="Open dataset" styleClass="submit">
-    <xw:event type="onclick">
-      <xw:action type="script"><![CDATA[categoryList.open();]]></xw:action>
-    </xw:event>    
-  </xw:button>
-  
+  <xw:dataSource id="categoryDatasource" dataSet="#{categoryList}" active="true"/>
+   
   <xw:select id="selectedCategory">
     <xw:selectItems dataSource="#{categoryDatasource}"
                     var="cat"
