@@ -24,17 +24,23 @@
     To get started, please select the type of content that you would like to submit:
   </p>
   
-  <!--seam:remoteMethodDataSet id="categoryList" method="categorySearch.listCategories"/>
-  <xw:dataSource id="categoryDatasource" dataSet="categoryList"/-->
+  <seam:remoteMethodDataSet id="categoryList" remoteClass="org.jboss.seam.university.action.CategorySearch" method="listCategories"/>
+  <!--xw:dataSource id="categoryDatasource" dataSet="#{categoryList}"/-->
+  
+  <xw:button label="Open dataset" styleClass="submit">
+    <xw:event type="onclick">
+      <xw:action type="script">categoryList.open();</xw:action>
+    </xw:event>    
+  </xw:button>
   
   <xw:select id="selectedCategory">
     <xw:selectItem value="1" text="Article"/>
     <xw:selectItem value="2" text="Blog"/>
     <xw:selectItem value="3" text="FAQ"/>
-    <!--xw:selectItems dataSource="categoryDatasource"
+    <xw:selectItems dataSource="#{categoryDatasource}"
                     var="category"
                     itemValue="category.id"
-                    itemLabel="category.name"/-->
+                    itemLabel="category.name"/>
   </xw:select>
   
   <xw:button label="Continue" styleClass="submit">
