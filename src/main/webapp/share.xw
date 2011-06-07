@@ -35,13 +35,10 @@
   </xw:button>
   
   <xw:select id="selectedCategory">
-    <!--xw:selectItem value="1" text="Article"/>
-    <xw:selectItem value="2" text="Blog"/>
-    <xw:selectItem value="3" text="FAQ"/-->
     <xw:selectItems dataSource="#{categoryDatasource}"
-                    var="category"
-                    itemValue="category.id"
-                    itemLabel="category.name"/>
+                    var="cat"
+                    itemValue="#{cat.categoryId}"
+                    itemLabel="#{cat.name}"/>
   </xw:select>
   
   <xw:button label="Continue" styleClass="submit">
