@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xw:view xmlns="http://www.w3.org/1999/xhtml" 
+ xmlns:xw="http://xwidgets.org/core"
+ xmlns:seam="http://seam.jboss.org/xwidgets">
+ 
+   <h1>Home</h1>
+
+</xw:view>

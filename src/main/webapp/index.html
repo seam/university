@@ -7,14 +7,15 @@
     <link href="style/default.css" rel="stylesheet" type="text/css"/>
     <link href='http://fonts.googleapis.com/css?family=Puritan' rel='stylesheet' type='text/css'>
     <link REL="SHORTCUT ICON" HREF="/favicon.ico"/>
-    
+
+    <script src="xwidgets/resources/xw.js"></script>          
     <script type="text/javascript" src="seam/resource/remoting/resource/remote.js"></script>
     <script type="text/javascript" src="seam/resource/remoting/interface.js?org.jboss.seam.university.action.CategorySearch"></script>    
   </head>
   <body>
     <div id="container">
       <div id="header">
-        <div id="logo"></div>
+        <div id="logo" onclick="javascript:xw.openView('home.xw', 'content')"></div>
         <div id="menu"></div>
       </div>
       
@@ -23,12 +24,10 @@
     
   </body>  
   
-  <script src="xwidgets/resources/xw.js"></script>      
-  <script src="xwidgets/resources/org/xwidgets/core/selectitems.js"></script>      
-  
   <script type="text/javascript">           
     xw.setResourceBase("xwidgets/resources/");
     xw.openView("menu.xw", "menu");
+    xw.openView("home.xw", "content");
   </script>
   
 </html>

@@ -48,6 +48,7 @@ body {
   background: url(logo.png) top left no-repeat; 
   width: 195px;
   height: 71px;
+  cursor: pointer;
   position: relative;
 }
 
