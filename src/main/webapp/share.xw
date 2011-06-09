@@ -9,40 +9,59 @@
 
   <h1>Share Content</h1>
 
-  <p>
-    Thank you for choosing to share your Seam knowledge with others! This wizard will walk you through
-    the process of submitting your Seam-related content to Seam University.
-  </p>
-  
-  <p>
-    Please note that there are two ways to submit content:
-  </p>
-  
-  <ul>
-    <li>By linking to content hosted on a third party site, such as an article or blog entry 
-        that is related to Seam, or</li>
-    <li>Publishing the content directly on the Seam University site itself</li>
-  </ul>
-  
-  <p>
-    To get started, please select the type of content that you would like to submit:
-  </p>
-  
-  <seam:remoteMethodDataSet id="categoryList" remoteClass="org.jboss.seam.university.action.CategorySearch" remoteMethod="listCategories"/>
-  
-  <xw:dataSource id="categoryDatasource" dataSet="#{categoryList}" active="true"/>
-   
-  <xw:select id="selectedCategory">
-    <xw:selectItems dataSource="#{categoryDatasource}"
-                    var="cat"
-                    itemValue="#{cat.categoryId}"
-                    itemLabel="#{cat.name}"/>
-  </xw:select>
-  
-  <xw:button label="Continue" styleClass="submit">
-    <xw:event type="onclick">
-      <xw:action type="script">alert("Continue")</xw:action>
-    </xw:event>    
-  </xw:button>
+  <xw:tabPanel id="wizard">
+    <xw:tab>
+      <p>
+        Thank you for choosing to share your Seam knowledge with others! This wizard will walk you through
+        the process of submitting your Seam-related content to Seam University.
+      </p>
+      
+      <p>
+        There are two ways to submit content:
+      </p>
+      
+      <ul>
+        <li>By linking to content hosted on a third party site, such as an article or blog entry 
+            that is related to Seam, or</li>
+        <li>Publishing the content directly on the Seam University site itself</li>
+      </ul>
+      
+      <p>
+        To get started, first select a category from the following list that best describes the content 
+        that you would like to submit:
+      </p>
+      
+      <seam:remoteMethodDataSet id="categoryList" remoteClass="org.jboss.seam.university.action.CategorySearch" remoteMethod="listCategories"/>
+      
+      <xw:dataSource id="categoryDatasource" dataSet="#{categoryList}" active="true"/>
+       
+      <xw:select id="selectedCategory">
+        <xw:selectItems dataSource="#{categoryDatasource}"
+                        var="cat"
+                        itemValue="#{cat.categoryId}"
+                        itemLabel="#{cat.name}"/>
+      </xw:select>
+      
+      <xw:button label="Next" styleClass="submit">
+        <xw:event type="onclick">
+          <xw:action type="script">wizard.next();</xw:action>
+        </xw:event>    
+      </xw:button>
+    </xw:tab>
+    
+    <xw:tab>
+      <xw:button label="Previous" styleClass="submit">
+        <xw:event type="onclick">
+          <xw:action type="script">wizard.previous()</xw:action>
+        </xw:event>    
+      </xw:button>        
+    
+      <xw:button label="Next" styleClass="submit">
+        <xw:event type="onclick">
+          <xw:action type="script">wizard.next()</xw:action>
+        </xw:event>    
+      </xw:button>    
+    </xw:tab>
+  </xw:tabPanel>
 
 </xw:view>

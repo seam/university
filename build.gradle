@@ -14,13 +14,14 @@ dependencies {
                    'org.hibernate.javax.persistence:hibernate-jpa-2.0-api:1.0.0.Final'                   
    compile 'org.jboss.seam.security:seam-security:3.0.0.Final',
            'org.jboss.seam.remoting:seam-remoting:3.0.0.Final',
+           'org.jboss.seam.conversation:seam-conversation-spi:3.0.0.CR1',
+           'org.jboss.seam.conversation:seam-conversation-weld:3.0.0.CR1',
            'org.xwidgets:xwidgets:1.0.0-SNAPSHOT',
            'org.jboss.seam.xwidgets:seam-xwidgets:3.0.0-SNAPSHOT',
            'org.jboss.seam.jcr:seam-jcr:3.0.0-SNAPSHOT'//,
   //         'org.modeshape:modeshape-jcr:2.5.0.Final',
   //         'org.apache.lucene:lucene-core:3.0.2'
 }
-
 
 repositories {
   mavenRepo urls: "https://repository.jboss.org/nexus/content/groups/public"

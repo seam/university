@@ -18,3 +18,15 @@ insert into IdentityObjectRelationshipType (id, name) values (1, 'JBOSS_IDENTITY
 insert into IdentityObjectRelationshipType (id, name) values (2, 'JBOSS_IDENTITY_ROLE');
 
 insert into IdentityObjectRelationship (id, name, relationship_type_id, from_identity_id, to_identity_id) values (1, 'admin', 2, 3, 2);
+
+insert into Category (id, name) values (1, 'Article');
+insert into Category (id, name) values (2, 'Blog');
+insert into Category (id, name) values (3, 'Tip');
+insert into Category (id, name) values (4, 'FAQ');
+insert into Category (id, name) values (5, 'Reference Documentation');
+insert into Category (id, name) values (6, 'API Documentation');
+insert into Category (id, name) values (7, 'News');
+insert into Category (id, name) values (8, 'IRC Log');
+insert into Category (id, name) values (9, 'Video');
+insert into Category (id, name) values (10, 'Podcast');
+insert into Category (id, name) values (11, 'Presentation');
