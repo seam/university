@@ -50,6 +50,18 @@
     </xw:tab>
     
     <xw:tab>
+      <p>
+        Is the content hosted on another site, or would you like to publish it on the
+        Seam University web site?
+      </p>
+      
+      <p>
+        <xw:radio id="contentLocation">
+          <xw:selectItem itemValue="external" itemLabel="The content is hosted on another site"/>
+          <xw:selectItem itemValue="internal" itemLabel="I would like to publish the content on Seam University"/>
+        </xw:radio>
+      </p>
+    
       <xw:button label="Previous" styleClass="submit">
         <xw:event type="onclick">
           <xw:action type="script">wizard.previous()</xw:action>
@@ -58,7 +70,7 @@
     
       <xw:button label="Next" styleClass="submit">
         <xw:event type="onclick">
-          <xw:action type="script">wizard.next()</xw:action>
+          <xw:action type="script">alert("selected value: " + contentLocation.getValue());</xw:action>
         </xw:event>    
       </xw:button>    
     </xw:tab>
