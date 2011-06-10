@@ -70,9 +70,21 @@
     
       <xw:button label="Next" styleClass="submit">
         <xw:event type="onclick">
-          <xw:action type="script">alert("selected value: " + contentLocation.getValue());</xw:action>
+          <xw:action type="script">wizard.next();</xw:action>
         </xw:event>    
       </xw:button>    
+    </xw:tab>
+    
+    <xw:tab>
+      <p>
+        Please enter a title and the content:
+      </p>
+      
+      <p>
+        <span>Title: </span><xw:inputText id="title"/>
+      </p>
+    
+      <xw:richEdit resizeMaxWidth="790"/>
     </xw:tab>
   </xw:tabPanel>
 
