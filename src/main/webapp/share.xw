@@ -21,8 +21,7 @@
       </p>
             
       <p>
-        To get started, first select a category from the following list that best describes the content 
-        that you would like to submit:
+        To get started, select the type of content that you would like to submit from the following list:
       </p>
       
       <seam:remoteMethodDataSet id="categoryList" remoteClass="org.jboss.seam.university.action.CategorySearch" remoteMethod="listCategories"/>
@@ -36,11 +35,13 @@
                         itemLabel="#{cat.name}"/>
       </xw:select>
       
-      <xw:button label="Next" styleClass="submit">
-        <xw:event type="onclick">
-          <xw:action type="script"><![CDATA[wizard.next();]]></xw:action>
-        </xw:event>    
-      </xw:button>
+      <div class="buttonBar">
+        <xw:button label="Next" styleClass="standard">
+          <xw:event type="onclick">
+            <xw:action type="script"><![CDATA[wizard.next();]]></xw:action>
+          </xw:event>    
+        </xw:button>
+      </div>
     </xw:tab>
     
     <xw:tab name="location">
@@ -56,17 +57,19 @@
         </xw:radio>
       </p>
     
-      <xw:button label="Previous" styleClass="submit">
-        <xw:event type="onclick">
-          <xw:action type="script">wizard.previous()</xw:action>
-        </xw:event>    
-      </xw:button>        
-    
-      <xw:button label="Next" styleClass="submit">
-        <xw:event type="onclick">
-          <xw:action type="script">wizard.next();</xw:action>
-        </xw:event>    
-      </xw:button>    
+      <div class="buttonBar">
+        <xw:button label="Previous" styleClass="standard">
+          <xw:event type="onclick">
+            <xw:action type="script">wizard.previous()</xw:action>
+          </xw:event>    
+        </xw:button>        
+      
+        <xw:button label="Next" styleClass="standard">
+          <xw:event type="onclick">
+            <xw:action type="script">wizard.next();</xw:action>
+          </xw:event>    
+        </xw:button>    
+      </div>
     </xw:tab>
     
     <xw:tab name="editor">
@@ -84,17 +87,19 @@
         </xw:event>
       </xw:richEdit>
       
-      <xw:button label="Previous" styleClass="submit">
-        <xw:event type="onclick">
-          <xw:action type="script">wizard.previous()</xw:action>
-        </xw:event>    
-      </xw:button>        
-    
-      <xw:button label="Next" styleClass="submit">
-        <xw:event type="onclick">
-          <xw:action type="script">wizard.next();</xw:action>
-        </xw:event>    
-      </xw:button>       
+      <div class="buttonBar">
+        <xw:button label="Previous" styleClass="standard">
+          <xw:event type="onclick">
+            <xw:action type="script">wizard.previous()</xw:action>
+          </xw:event>    
+        </xw:button>        
+      
+        <xw:button label="Next" styleClass="standard">
+          <xw:event type="onclick">
+            <xw:action type="script">wizard.next();</xw:action>
+          </xw:event>    
+        </xw:button>       
+      </div>
       
     </xw:tab>
   </xw:tabPanel>

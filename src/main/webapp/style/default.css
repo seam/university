@@ -117,28 +117,58 @@ button span {
 	}
 }
 
+div.buttonBar {
+  float: right;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  height: 30px;
+}
 
-/* OPTIONAL BUTTON STYLES for applying custom look and feel: */		
-button.submit { 
-	padding: 0 15px 0 0; 
-	margin-right:5px; 
-	font-size:1em; 
-	text-align: center; 
-	background: transparent url(button_bg.png) no-repeat right -74px; 
+div.buttonBar button {
+  margin-left: 8px;
 }
-	
-button.submit span {
-	padding: 6px 0 0 15px; 
-	height:27px; 
-	background: transparent url(button_bg.png) no-repeat left top; 
-	color:#ffffff; 
+
+button.standard {
+  width: 100px;
+  height: 28px;
+  position:relative;
+  display:inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  color:#333333;
+  text-shadow:1px 1px 0 #ffffff;
+  white-space:nowrap;
+  border:none;
+  overflow:visible;
+  cursor:pointer;
+  border:1px solid #d4d4d4;
+  -webkit-border-radius:5px;
+  -moz-border-radius:5px;
+  border-radius:5px;
+  background:#f4f4f4;
+  filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#f4f4f4',endColorstr='#ececec');
+  background:-webkit-gradient(linear,left top,left bottom,from(#f4f4f4),to(#ececec));
+  background:-moz-linear-gradient(top,#f4f4f4,#ececec);
 }
-	
-button.submit:hover, button.submitHover { 
-/* the redundant class is used to apply the hover state with a script */
-	background-position: right -111px; 
+
+button.standard:hover {
+  color:#ffffff;
+  text-decoration:none;
+  text-shadow:-1px -1px 0 rgba(0,0,0,0.3);
+  border-color:#dead7f;
+  border-bottom-color:#b06115;
+  background:#599bdc;
+  filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#f6e4d5',endColorstr='#cf8238');
+  background:-webkit-gradient(linear,left top,left bottom,from(#f6e4d5),to(#cf8238));
+  background:-moz-linear-gradient(top,#f6e4d5,#cf8238);
 }
-	
-button.submit:hover span, button.submitHover span {
-	background-position: 0 -37px;
+
+button.standard:active {
+  border-color:#b06115;
+  border-bottom-color:#dead7f;
+  background:#3072b3;
+  filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#cf8238',endColorstr='#f6e4d5');
+  background:-webkit-gradient(linear,left top,left bottom,from(#cf8238),to(#f6e4d5));
+  background:-moz-linear-gradient(top,#cf8238,#f6e4d5);
 }
+
