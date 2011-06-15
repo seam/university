@@ -10,6 +10,10 @@
   <h1>Share Content</h1>
 
   <xw:tabPanel id="wizard">
+    <xw:event type="beforeScroll">
+      <xw:action type="script"></xw:action>
+    </xw:event>
+    
     <xw:tab name="category">
       <p>
         Thank you for choosing to share your Seam knowledge with others! This wizard will walk you through
@@ -34,9 +38,7 @@
       
       <xw:button label="Next" styleClass="submit">
         <xw:event type="onclick">
-          <xw:action type="script"><![CDATA[var value = selectedCategory.getValue();         
-    location.setEnabled(value == 1 || value == 2 || value == 5 || value == 6 || value == 7 || value == 9 || value == 10 || value == 11);
-    wizard.next();]]></xw:action>
+          <xw:action type="script"><![CDATA[wizard.next();]]></xw:action>
         </xw:event>    
       </xw:button>
     </xw:tab>
