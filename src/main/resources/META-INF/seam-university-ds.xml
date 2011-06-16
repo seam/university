@@ -7,17 +7,27 @@
 <datasources>
     <local-tx-datasource>
         <jndi-name>seamUniversityDatasource</jndi-name>
-        <connection-url>jdbc:hsqldb:${jboss.server.data.dir}${/}hypersonic${/}seamUniversity</connection-url>       
+        <!--connection-url>jdbc:hsqldb:${jboss.server.data.dir}${/}hypersonic${/}seamUniversity</connection-url>       
         <driver-class>org.hsqldb.jdbcDriver</driver-class>
         <user-name>sa</user-name>
-        <password></password>
+        <password></password-->
+        
+        <connection-url>jdbc:mysql://localhost:3306/university</connection-url>
+        <driver-class>com.mysql.jdbc.Driver</driver-class>
+        <user-name>university</user-name>
+        <password>university</password>
+        
+        <metadata>
+          <type-mapping>mySQL</type-mapping>
+        </metadata>
+        
     </local-tx-datasource>
 
-    <mbean code="org.jboss.jdbc.HypersonicDatabase" 
-           name="jboss:service=Hypersonic,database=idmconsole">
+    <!--mbean code="org.jboss.jdbc.HypersonicDatabase" 
+           name="jboss:service=Hypersonic,database=university">
         <attribute name="Database">seamUniversity</attribute>
         <attribute name="InProcessMode">true</attribute>
-    </mbean>
+    </mbean-->
    
 </datasources>
 

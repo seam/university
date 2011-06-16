@@ -8,8 +8,7 @@
     <link rel="SHORTCUT ICON" href="favicon.ico"/>
       
     <script type="text/javascript" src="seam/resource/remoting/resource/remote.js"></script>
-    <script type="text/javascript" src="seam/resource/remoting/interface.js?org.jboss.seam.university.action.CategorySearch"></script>   
-
+    <script type="text/javascript" src="seam/resource/remoting/interface.js?org.jboss.seam.university.action.CategorySearch&org.jboss.seam.university.action.ContentAction"></script>   
     <script src="xwidgets/resources/xw.js"></script>
     <script src="xwidgets/resources/org/xwidgets/core/select.js"></script>
     <script src="xwidgets/resources/org/xwidgets/core/selectitems.js"></script>
@@ -27,7 +26,8 @@
     
   </body>  
   
-  <script type="text/javascript">           
+  <script type="text/javascript">        
+    Seam.debug = true;  
     xw.openView("menu.xw", "menu");
     xw.openView("home.xw", "content");
   </script>

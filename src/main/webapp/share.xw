@@ -11,7 +11,23 @@
 
   <xw:tabPanel id="wizard">
     <xw:event type="beforeScroll">
-      <xw:action type="script"></xw:action>
+      <xw:action type="script"><![CDATA[
+        var cat = null;
+        var cats = categoryList.getValues();
+        for (var i = 0; i < cats.length; i++) {
+          if (cats[i].id == selectedCategory.getValue()) {
+            cat = cats[i];
+            break;
+          }
+        }
+        
+        if (cat != null) {
+          wizard.setEnabled("location", cat.localEditor != null && cat.remoteEditor != null);
+        }
+        
+        wizard.setEnabled("editor", contentLocation.getValue() == "local" && cat.localEditor == "richText");
+        wizard.setEnabled("urlEditor", contentLocation.getValue() == "remote" && cat.remoteEditor == "url");        
+      ]]></xw:action>
     </xw:event>
     
     <xw:tab name="category">
@@ -37,37 +53,30 @@
       
       <div class="buttonBar">
         <xw:button label="Next" styleClass="standard">
-          <xw:event type="onclick">
-            <xw:action type="script"><![CDATA[wizard.next();]]></xw:action>
-          </xw:event>    
+          <xw:event type="onclick"><xw:action type="script">wizard.next();</xw:action></xw:event>    
         </xw:button>
       </div>
     </xw:tab>
     
     <xw:tab name="location">
       <p>
-        Is the content hosted on another site, or would you like to publish it on the
-        Seam University web site?
+        Would you like to publish the content on the Seam University web site, or is it hosted on another site?
       </p>
       
       <p>
         <xw:radio id="contentLocation">
-          <xw:selectItem itemValue="remote" itemLabel="The content is hosted on another site"/>
           <xw:selectItem itemValue="local" itemLabel="I would like to publish the content on Seam University"/>
+          <xw:selectItem itemValue="remote" itemLabel="The content is hosted on another site"/>
         </xw:radio>
       </p>
     
       <div class="buttonBar">
         <xw:button label="Previous" styleClass="standard">
-          <xw:event type="onclick">
-            <xw:action type="script">wizard.previous()</xw:action>
-          </xw:event>    
+          <xw:event type="onclick"><xw:action type="script">wizard.previous()</xw:action></xw:event>    
         </xw:button>        
       
         <xw:button label="Next" styleClass="standard">
-          <xw:event type="onclick">
-            <xw:action type="script">wizard.next();</xw:action>
-          </xw:event>    
+          <xw:event type="onclick"><xw:action type="script">wizard.next();</xw:action></xw:event>    
         </xw:button>    
       </div>
     </xw:tab>
@@ -89,18 +98,69 @@
       
       <div class="buttonBar">
         <xw:button label="Previous" styleClass="standard">
-          <xw:event type="onclick">
-            <xw:action type="script">wizard.previous()</xw:action>
-          </xw:event>    
+          <xw:event type="onclick"><xw:action type="script">wizard.previous()</xw:action></xw:event>    
         </xw:button>        
       
         <xw:button label="Next" styleClass="standard">
-          <xw:event type="onclick">
-            <xw:action type="script">wizard.next();</xw:action>
-          </xw:event>    
+          <xw:event type="onclick"><xw:action type="script">wizard.next();</xw:action></xw:event>    
         </xw:button>       
       </div>
       
+    </xw:tab>
+    
+    <xw:tab name="urlEditor">
+      <p>
+        Please enter a title, followed by the url of the content that you would like to submit:
+      </p>
+      
+      <p>
+        <span>Title: </span><xw:inputText id="urlTitle"/>
+      </p>
+      
+      <p>
+        <span>URL: </span><xw:inputText id="url"/>
+      </p>
+      
+      <div class="buttonBar">
+        <xw:button label="Previous" styleClass="standard">
+          <xw:event type="onclick"><xw:action type="script">wizard.previous()</xw:action></xw:event>    
+        </xw:button>        
+      
+        <xw:button label="Next" styleClass="standard">
+          <xw:event type="onclick"><xw:action type="script">wizard.next();</xw:action></xw:event>    
+        </xw:button>       
+      </div>       
+    
+    </xw:tab>
+    
+    <xw:tab name="keywords">
+      <p>
+        To allow other users to easily locate this content, please select one or more relevant 
+        keywords from the following list, or enter some new keywords.
+      </p>
+    
+      <div class="buttonBar">
+        <xw:button label="Previous" styleClass="standard">
+          <xw:event type="onclick"><xw:action type="script">wizard.previous()</xw:action></xw:event>    
+        </xw:button>        
+      
+        <xw:button label="Next" styleClass="standard">
+          <xw:event type="onclick"><xw:action type="script">wizard.next();</xw:action></xw:event>    
+        </xw:button>       
+      </div>    
+    </xw:tab>
+    
+    <xw:tab name="preview">
+      <p>
+      
+      </p>
+    
+      <xw:button label="Save" styleClass="standard">
+        <xw:event type="onclick"><xw:action type="script"><![CDATA[
+var contentAction = Seam.createBean("org.jboss.seam.university.action.ContentAction");
+contentAction.save();        
+        ]]></xw:action></xw:event>    
+      </xw:button>     
     </xw:tab>
   </xw:tabPanel>
 

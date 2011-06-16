@@ -1,5 +1,6 @@
 apply plugin: 'war'
 apply plugin: 'eclipse'
+apply plugin: 'maven'
 
 group = "org.jboss.seam.university"
 version = "1.0.0-SNAPSHOT"
@@ -11,9 +12,10 @@ war {
 dependencies {
    providedCompile 'org.jboss.spec.javax.servlet:jboss-servlet-api_3.0_spec:1.0.0.Final', 
                    'javax.enterprise:cdi-api:1.0-SP4',
-                   'org.hibernate.javax.persistence:hibernate-jpa-2.0-api:1.0.0.Final'                   
+                   'org.hibernate.javax.persistence:hibernate-jpa-2.0-api:1.0.0.Final',
+                   'javax.jcr:jcr:2.0'
    compile 'org.jboss.seam.security:seam-security:3.0.0.Final',
-           'org.jboss.seam.remoting:seam-remoting:3.0.0.Final',
+           'org.jboss.seam.remoting:seam-remoting:3.0.1-SNAPSHOT',
            'org.jboss.seam.conversation:seam-conversation-spi:3.0.0.CR1',
            'org.jboss.seam.conversation:seam-conversation-weld:3.0.0.CR1',
            'org.xwidgets:xwidgets:1.0.0-SNAPSHOT',
@@ -24,9 +26,9 @@ dependencies {
 }
 
 repositories {
+  mavenLocal()
   mavenRepo urls: "https://repository.jboss.org/nexus/content/groups/public"
   mavenCentral()
-  mavenLocal()
 }
 
 archivesBaseName = "seam-university"
