@@ -35,11 +35,7 @@ public @RequestScoped class ContentAction {
         }
         
         Session session = repository.login("default");
-        try {
-            
-            String user = session.getUserID();
-            String name = repository.getDescriptor(Repository.REP_NAME_DESC);           
-            
+        try {          
             Node rootNode = session.getRootNode();            
             Node categoryParent = rootNode.hasNode(category.getName()) ? rootNode.getNode(category.getName()) :
                 rootNode.addNode(category.getName());

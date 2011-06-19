@@ -40,7 +40,11 @@
         To get started, select the type of content that you would like to submit from the following list:
       </p>
       
+      <seam:remoteMethodELResolver id="categoryList2" remoteClass="org.jboss.seam.university.action.CategorySearch" remoteMethod="listCategories"/>
+
       <seam:remoteMethodDataSet id="categoryList" remoteClass="org.jboss.seam.university.action.CategorySearch" remoteMethod="listCategories"/>
+      
+      
       
       <xw:dataSource id="categoryDatasource" dataSet="#{categoryList}" active="true"/>
        
@@ -161,7 +165,7 @@
         </xw:button>        
         
         <xw:button label="Save" styleClass="standard">
-          <xw:event type="onclick"><xw:action type="script"><![CDATA[
+          <xw:event type="onclick"><xw:action type="scRemoteMethodELResolverript"><![CDATA[
   var cat = null;
   var cats = categoryList.getValues();
   for (var i = 0; i < cats.length; i++) {
@@ -175,7 +179,7 @@
     var contentAction = Seam.createBean("org.jboss.seam.university.action.ContentAction");
     
     var cb = function(result) {
-      if (result) { alert("Content saved."); }
+      if (result) { xw.openView("home.xw", "content"); }
     }; 
     
     if (contentLocation.getValue() == "local") {
