@@ -28,7 +28,7 @@ dependencies {
 repositories {
   mavenLocal()
   mavenRepo urls: "https://repository.jboss.org/nexus/content/groups/public"
-  mavenCentral()
+  //mavenCentral()
 }
 
 archivesBaseName = "seam-university"

@@ -90,7 +90,7 @@
         <span>Title: </span><xw:inputText id="title"/>
       </p>
     
-      <xw:richEdit>
+      <xw:richEdit id="content">
         <xw:event type="onchange">
           <xw:action type="script"></xw:action>
         </xw:event>
@@ -152,15 +152,42 @@
     
     <xw:tab name="preview">
       <p>
-      
+        Please review your content:
       </p>
     
-      <xw:button label="Save" styleClass="standard">
-        <xw:event type="onclick"><xw:action type="script"><![CDATA[
-var contentAction = Seam.createBean("org.jboss.seam.university.action.ContentAction");
-contentAction.save();        
-        ]]></xw:action></xw:event>    
-      </xw:button>     
+      <div class="buttonBar">  
+        <xw:button label="Previous" styleClass="standard">
+          <xw:event type="onclick"><xw:action type="script">wizard.previous()</xw:action></xw:event>    
+        </xw:button>        
+        
+        <xw:button label="Save" styleClass="standard">
+          <xw:event type="onclick"><xw:action type="script"><![CDATA[
+  var cat = null;
+  var cats = categoryList.getValues();
+  for (var i = 0; i < cats.length; i++) {
+    if (cats[i].id == selectedCategory.getValue()) {
+      cat = cats[i];
+      break;
+    }
+  }
+  
+  if (cat != null) {
+    var contentAction = Seam.createBean("org.jboss.seam.university.action.ContentAction");
+    
+    var cb = function(result) {
+      if (result) { alert("Content saved."); }
+    }; 
+    
+    if (contentLocation.getValue() == "local") {
+      contentAction.saveLocalContent(cat, title.getValue(), content.getValue(), cb);
+    } else {
+      contentAction.saveRemoteContent(cat, title.getValue(), content.getValue(), cb);
+    }
+  }          
+          
+          ]]></xw:action></xw:event>    
+        </xw:button>     
+      </div>
     </xw:tab>
   </xw:tabPanel>
 
