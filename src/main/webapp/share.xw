@@ -3,23 +3,12 @@
  xmlns:xw="http://xwidgets.org/core"
  xmlns:seam="http://seam.jboss.org/xwidgets">
  
-  <xw:event type="afterRender">
-    <xw:action type="script"><![CDATA[categoryList.open();]]></xw:action>
-  </xw:event>     
-
   <h1>Share Content</h1>
 
   <xw:tabPanel id="wizard">
     <xw:event type="beforeScroll">
       <xw:action type="script"><![CDATA[
-        var cat = null;
-        var cats = categoryList.getValues();
-        for (var i = 0; i < cats.length; i++) {
-          if (cats[i].id == selectedCategory.getValue()) {
-            cat = cats[i];
-            break;
-          }
-        }
+        var cat = selectedCategory.getObjectValue();
         
         if (cat != null) {
           wizard.setEnabled("location", cat.localEditor != null && cat.remoteEditor != null);
@@ -40,16 +29,14 @@
         To get started, select the type of content that you would like to submit from the following list:
       </p>
       
-      <seam:remoteMethodELResolver id="categoryList2" remoteClass="org.jboss.seam.university.action.CategorySearch" remoteMethod="listCategories"/>
-
-      <seam:remoteMethodDataSet id="categoryList" remoteClass="org.jboss.seam.university.action.CategorySearch" remoteMethod="listCategories"/>
-      
-      
-      
-      <xw:dataSource id="categoryDatasource" dataSet="#{categoryList}" active="true"/>
+      <seam:remoteMethodELResolver 
+        remoteClass="org.jboss.seam.university.action.CategorySearch" 
+        remoteMethod="listCategories"
+        elVariableName="categoryList"
+        refresh="600"/>
        
       <xw:select id="selectedCategory">
-        <xw:selectItems dataSource="#{categoryDatasource}"
+        <xw:selectItems value="#{categoryList}"
                         var="cat"
                         itemValue="#{cat.id}"
                         itemLabel="#{cat.name}"/>
