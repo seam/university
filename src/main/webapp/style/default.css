@@ -91,6 +91,22 @@ a.menu:hover {
   color: #ebab6d;
 }
 
+label {
+  color: #777777;  
+}
+
+label.leftAlign {
+  float: left;
+  width: 120px; 
+  padding: 4px 2px 4px 2px;  
+  height: 20px;
+}
+
+input.long {
+  width: 600px;
+  height: 20px;
+}
+
 /* CSS Styles for Sliding Door buttons */
 		
 button { 
