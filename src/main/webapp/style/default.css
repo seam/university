@@ -102,6 +102,35 @@ label.leftAlign {
   height: 20px;
 }
 
+select {
+  height: 28px;
+  border: 1px solid #d5d5d5;
+  background:#f4f4f4;
+  color: #777777;
+  -webkit-border-radius:3px;
+  -moz-border-radius:3px;
+  border-radius:3px;
+  filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#ffffff',endColorstr='#dddddd');
+  background:-webkit-gradient(linear,left top,left bottom,from(#ffffff),to(#f4f4f4));
+  background:-moz-linear-gradient(top,#ffffff,#dddddd);
+}
+
+input {
+  border: 1px solid #d5d5d5;
+  background:#f4f4f4;
+  color: #777777;
+  -webkit-border-radius:3px;
+  -moz-border-radius:3px;
+  border-radius:3px;
+  filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#ffffff',endColorstr='#dddddd');
+  background:-webkit-gradient(linear,left top,left bottom,from(#ffffff),to(#f4f4f4));
+  background:-moz-linear-gradient(top,#ffffff,#dddddd);
+}
+
+input.radio {
+  margin-top: 8px;
+}
+
 input.long {
   width: 600px;
   height: 20px;

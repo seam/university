@@ -3,6 +3,17 @@
  xmlns:xw="http://xwidgets.org/core"
  xmlns:seam="http://seam.jboss.org/xwidgets">
  
-   <h1>Home</h1>
+  <h1>Home</h1>
+   
+  <seam:remoteMethodELResolver 
+    remoteClass="org.jboss.seam.university.action.ContentSearch" 
+    remoteMethod="listLatestContent"
+    elVariableName="latestContent"
+    refresh="600"/>   
+   
+  <xw:repeat value="#{latestContent}" var="content">
+    Title
+   
+  </xw:repeat>
 
 </xw:view>

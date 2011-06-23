@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import javax.jcr.Node;
 import javax.jcr.Repository;
 import javax.jcr.Session;
+import javax.persistence.EntityManager;
 
 import org.jboss.seam.jcr.annotations.JcrConfiguration;
 import org.jboss.seam.remoting.annotations.WebRemote;
@@ -21,13 +22,17 @@ public @RequestScoped class ContentAction {
 
     //@Inject Logging log;
     
+    @Inject EntityManager entityManager;
+    
     @Inject @JcrConfiguration(name="org.modeshape.jcr.URL", value="jndi:jcr/local?repositoryName=repository")
     Repository repository;
+    
+    @Inject LatestContentAction latestContent;
     
     //@Inject @JcrConfiguration(name="org.modeshape.jcr.URL",value="jndi:jcr/local?repositoryName=repository")
     //Session session;
     
-    @WebRemote
+    @WebRemote 
     public boolean saveLocalContent(Category category, String title, String content) throws Exception  {   
         
         if (title == null) {
@@ -42,8 +47,12 @@ public @RequestScoped class ContentAction {
 
             Node contentNode = categoryParent.addNode(title);
             contentNode.setProperty("content", content);
-            contentNode.setProperty("created", System.currentTimeMillis());
+
+            Date now = new Date();
+            //contentNode.setProperty("created", now);
             session.save();
+            
+            latestContent.add(contentNode.getIdentifier(), now);
             
             return true;
         }

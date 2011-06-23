@@ -55,7 +55,7 @@
       </p>
       
       <p>
-        <xw:radio id="contentLocation">
+        <xw:radio id="contentLocation" styleClass="radio">
           <xw:selectItem itemValue="local" itemLabel="I would like to publish the content on Seam University"/>
           <xw:selectItem itemValue="remote" itemLabel="The content is hosted on another site"/>
         </xw:radio>
@@ -152,15 +152,8 @@
         </xw:button>        
         
         <xw:button label="Save" styleClass="standard">
-          <xw:event type="onclick"><xw:action type="scRemoteMethodELResolverript"><![CDATA[
-  var cat = null;
-  var cats = categoryList.getValues();
-  for (var i = 0; i < cats.length; i++) {
-    if (cats[i].id == selectedCategory.getValue()) {
-      cat = cats[i];
-      break;
-    }
-  }
+          <xw:event type="onclick"><xw:action type="script"><![CDATA[
+  var cat = selectedCategory.getObjectValue();  
   
   if (cat != null) {
     var contentAction = Seam.createBean("org.jboss.seam.university.action.ContentAction");
