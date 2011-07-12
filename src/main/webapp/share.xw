@@ -82,7 +82,7 @@
       </p>
     
       <xw:richEdit id="content">
-        <xw:event type="onchange">
+        <xw:event type="onChange">
           <xw:action type="script"></xw:action>
         </xw:event>
       </xw:richEdit>

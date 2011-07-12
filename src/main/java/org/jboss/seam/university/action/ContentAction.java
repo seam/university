@@ -9,7 +9,6 @@ import javax.jcr.Repository;
 import javax.jcr.Session;
 import javax.persistence.EntityManager;
 
-import org.jboss.seam.jcr.annotations.JcrConfiguration;
 import org.jboss.seam.remoting.annotations.WebRemote;
 import org.jboss.seam.university.model.Category;
 
