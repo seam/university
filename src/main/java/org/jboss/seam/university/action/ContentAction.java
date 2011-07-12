@@ -24,14 +24,10 @@ public @RequestScoped class ContentAction {
     
     @Inject EntityManager entityManager;
     
-    @Inject @JcrConfiguration(name="org.modeshape.jcr.URL", value="file:WEB-INF/classes/modeshape.xml?repositoryName=repository")
-    Repository repository;
+    @Inject Repository repository;
     
     @Inject LatestContentAction latestContent;
-    
-    //@Inject @JcrConfiguration(name="org.modeshape.jcr.URL",value="jndi:jcr/local?repositoryName=repository")
-    //Session session;
-    
+        
     @WebRemote 
     public boolean saveLocalContent(Category category, String title, String content) throws Exception  {   
         

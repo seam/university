@@ -19,8 +19,7 @@ public @RequestScoped class ContentSearch {
 
     @Inject EntityManager entityManager;
     
-    @Inject @JcrConfiguration(name="org.modeshape.jcr.URL", value="file:WEB-INF/classes/modeshape.xml?repositoryName=repository")
-    Repository repository;
+    @Inject Repository repository;
     
     @WebRemote
     public List<Content> listLatestContent() throws Exception  {   
