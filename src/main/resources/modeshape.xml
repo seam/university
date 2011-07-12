@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns:mode="http://www.modeshape.org/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0">
+    
+    <mode:repositories>
+        <mode:repository jcr:name="repository" >
+            <mode:source>university-store</mode:source>
+            <mode:options jcr:primaryType="options">
+                <mode:option jcr:name="projectNodeTypes" mode:value="true"/>
+                <mode:option jcr:name="jaasLoginConfigName" mode:value="modeshape"/>
+            </mode:options>
+
+            <!--mode:initialContent mode:workspaces="default" mode:applyToNewWorkspaces="true" mode:content="modeshape-initial-content.xml"/-->
+        </mode:repository>
+    </mode:repositories>
+
+    <mode:sources jcr:primaryType="nt:unstructured">        
+      <mode:source jcr:name="university-store"
+        mode:classname="org.modeshape.connector.store.jpa.JpaSource"
+        mode:dataSourceJndiName="java:UniversityDS"
+        mode:model="Simple"
+        mode:dialect="org.hibernate.dialect.MySQLDialect"
+        mode:referentialIntegrityEnforced="true"
+        mode:showSql="true"
+        mode:autoGenerateSchema="create"
+        mode:creatingWorkspacesAllowed="true"
+        mode:defaultWorkspaceName="default"/>
+    </mode:sources>    
+
+</configuration>

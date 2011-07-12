@@ -6,7 +6,7 @@
 
 <datasources>
     <local-tx-datasource>
-        <jndi-name>seamUniversityDatasource</jndi-name>
+        <jndi-name>UniversityDS</jndi-name>
         <!--connection-url>jdbc:hsqldb:${jboss.server.data.dir}${/}hypersonic${/}seamUniversity</connection-url>       
         <driver-class>org.hsqldb.jdbcDriver</driver-class>
         <user-name>sa</user-name>
