@@ -74,12 +74,15 @@
     
     <xw:tab name="editor">
       <p>
-        Please enter a title, followed by the content that you would like to submit:
+        Please enter a title, followed by the content that you would like to submit.  You may also
+        attach images and other files by clicking the 'Attach a file' link.
       </p>
       
       <p>
         <xw:label value="Title" styleClass="leftAlign"/><xw:inputText id="title" styleClass="long"/>
       </p>
+      
+      <xw:fileUpload caption="Attach a file" uploadUrl="content/upload"/>
     
       <xw:richEdit id="content">
         <xw:event type="onChange">
