@@ -82,7 +82,7 @@
         <xw:label value="Title" styleClass="leftAlign"/><xw:inputText id="title" styleClass="long"/>
       </p>
       
-      <xw:fileUpload caption="Attach a file" uploadUrl="content/upload"/>
+      <xw:fileUpload caption="Attach a file" uploadPath="content/upload"/>
     
       <xw:richEdit id="content">
         <xw:event type="onChange">

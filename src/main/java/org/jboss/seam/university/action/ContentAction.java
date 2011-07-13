@@ -26,6 +26,8 @@ public @RequestScoped class ContentAction {
     @Inject Repository repository;
     
     @Inject LatestContentAction latestContent;
+    
+    @Inject TempFileManager fileManager;
         
     @WebRemote 
     public boolean saveLocalContent(Category category, String title, String content) throws Exception  {   
