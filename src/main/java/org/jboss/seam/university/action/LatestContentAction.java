@@ -2,6 +2,7 @@ package org.jboss.seam.university.action;
 
 import java.util.Date;
 
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
@@ -13,7 +14,7 @@ import org.jboss.seam.university.model.LatestContent;
  * @author Shane Bryzak
  *
  */
-public class LatestContentAction {
+public @RequestScoped class LatestContentAction {
 
     @Inject EntityManager entityManager;
     

@@ -8,8 +8,6 @@
                 <mode:option jcr:name="projectNodeTypes" mode:value="true"/>
                 <mode:option jcr:name="jaasLoginConfigName" mode:value="modeshape"/>
             </mode:options>
-
-            <!--mode:initialContent mode:workspaces="default" mode:applyToNewWorkspaces="true" mode:content="modeshape-initial-content.xml"/-->
         </mode:repository>
     </mode:repositories>
 

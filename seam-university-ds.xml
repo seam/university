@@ -7,10 +7,6 @@
 <datasources>
     <local-tx-datasource>
         <jndi-name>UniversityDS</jndi-name>
-        <!--connection-url>jdbc:hsqldb:${jboss.server.data.dir}${/}hypersonic${/}seamUniversity</connection-url>       
-        <driver-class>org.hsqldb.jdbcDriver</driver-class>
-        <user-name>sa</user-name>
-        <password></password-->
         
         <connection-url>jdbc:mysql://localhost:3306/university</connection-url>
         <driver-class>com.mysql.jdbc.Driver</driver-class>
@@ -22,12 +18,6 @@
         </metadata>
         
     </local-tx-datasource>
-
-    <!--mbean code="org.jboss.jdbc.HypersonicDatabase" 
-           name="jboss:service=Hypersonic,database=university">
-        <attribute name="Database">seamUniversity</attribute>
-        <attribute name="InProcessMode">true</attribute>
-    </mbean-->
    
 </datasources>
 

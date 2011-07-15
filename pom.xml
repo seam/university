@@ -21,6 +21,12 @@
           <type>pom</type>
           <scope>import</scope>
        </dependency>      
+       
+      <dependency>
+         <groupId>org.hibernate</groupId>
+         <artifactId>hibernate-c3p0</artifactId>
+         <version>4.0.0.Beta3</version>
+      </dependency>       
      </dependencies>
    </dependencyManagement>
 
@@ -48,8 +54,15 @@
       </dependency>
 
       <dependency>
+         <groupId>dom4j</groupId>
+         <artifactId>dom4j</artifactId>
+         <version>1.6.1</version>
+      </dependency>
+
+      <dependency>
          <groupId>org.jboss.seam.persistence</groupId>
          <artifactId>seam-persistence</artifactId>
+         <version>3.0.1-SNAPSHOT</version>
       </dependency>
 
       <dependency>
@@ -81,19 +94,13 @@
       <dependency>
          <groupId>org.modeshape</groupId>
          <artifactId>modeshape-jcr</artifactId>
-         <version>2.5.0.Final</version>
-         <exclusions>
-            <exclusion>
-               <groupId>org.slf4j</groupId>
-               <artifactId>slf4j-api</artifactId>
-            </exclusion>
-         </exclusions>
+         <version>2.6.0.Beta1</version>
       </dependency>
-   
+        
       <dependency>
          <groupId>org.modeshape</groupId>
          <artifactId>modeshape-connector-store-jpa</artifactId>
-         <version>2.5.0.Final</version>
+         <version>2.6.0.Beta1</version>
          <exclusions>
             <exclusion>
                <groupId>org.hibernate</groupId>
@@ -104,9 +111,9 @@
                <artifactId>hibernate-core</artifactId>
             </exclusion>
             <exclusion>
-               <groupId>org.slf4j</groupId>
-               <artifactId>slf4j-api</artifactId>
-            </exclusion>            
+               <groupId>org.hibernate</groupId>
+               <artifactId>hibernate-infinispan</artifactId>
+            </exclusion>
          </exclusions>            
       </dependency>
  
@@ -152,6 +159,12 @@
           <artifactId>maven-war-plugin</artifactId>
           <configuration>
             <failOnMissingWebXml>false</failOnMissingWebXml>
+            <archive>
+              <manifestEntries>
+                <Dependencies>org.slf4j.impl</Dependencies>
+              </manifestEntries>
+            </archive>
+
           </configuration>
         </plugin>      
          
