@@ -7,7 +7,7 @@
   </xw:link> |
   <xw:link styleClass="header" caption="Register">
     <xw:event type="onclick">
-      <xw:action type="script">xw.openPopup("login.xw", "Please Sign In")</xw:action>
+      <xw:action type="script"></xw:action>
     </xw:event>
   </xw:link>      
 </xw:view>

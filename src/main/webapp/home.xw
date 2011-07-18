@@ -16,8 +16,6 @@
       ]]></xw:action>
     </xw:event>
   
-  
-  
     <div class="title">#{content.title}</div>
     <div class="contentBody">
       <xw:text text="#{content.content}"/>
