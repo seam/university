@@ -54,7 +54,28 @@ body {
 }
 
 #header {
-  height: 80px;
+  height: 80px; 
+}
+
+#headerMenu {
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  height: 22px;
+  font-size: 11px;  
+}
+
+a.header, a.header:visited {
+  text-shadow:1px 1px 0 #ffffff;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;  
+  color: #cf8238;
+}
+
+a.header:hover {
+  color: #ebab6d;
 }
 
 #logo {
@@ -64,6 +85,22 @@ body {
   height: 71px;
   cursor: pointer;
   position: relative;
+}
+
+div.xwPopupWindow  {
+  border: 2px solid #4c4c4c;
+  -webkit-border-radius:12px;
+  -moz-border-radius:12px;
+  border-radius:12px;
+  padding: 6px;
+}
+
+div.xwPopupTitle {
+  font-size: 20px;
+  margin-top: 2px;
+  margin-bottom: 6px;
+  color: #653c1b;  
+  font-weight: normal;
 }
 
 #content {
@@ -123,6 +160,13 @@ label.leftAlign {
   height: 20px;
 }
 
+label.short {
+  float: left;
+  width: 80px;
+  padding: 4px 2px 4px 2px;  
+  height: 20px;  
+}
+
 select {
   height: 28px;
   border: 1px solid #d5d5d5;
@@ -157,6 +201,16 @@ input.long {
   height: 20px;
 }
 
+input.short {
+  width: 100px;
+  height: 20px;
+}
+
+input.medium {
+  width: 200px;
+  height: 20px;
+}
+
 /* CSS Styles for Sliding Door buttons */
 		
 button { 
@@ -188,6 +242,7 @@ div.buttonBar {
   float: right;
   margin-top: 4px;
   margin-bottom: 4px;
+  margin-right: 6px;
   height: 30px;
 }
 

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xw:view xmlns="http://www.w3.org/1999/xhtml" xmlns:xw="http://xwidgets.org/core">
+  <xw:link styleClass="header" caption="Sign In">
+    <xw:event type="onclick">
+      <xw:action type="script">xw.openPopup("login.xw", "Please Sign In", 700, 400)</xw:action>
+    </xw:event>
+  </xw:link> |
+  <xw:link styleClass="header" caption="Register">
+    <xw:event type="onclick">
+      <xw:action type="script">xw.openPopup("login.xw", "Please Sign In")</xw:action>
+    </xw:event>
+  </xw:link>      
+</xw:view>

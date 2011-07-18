@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xw:view xmlns="http://www.w3.org/1999/xhtml" xmlns:xw="http://xwidgets.org/core">
+  
+  <p>
+    You may log in by using either a registered Seam University account, or alternatively you may 
+    use OpenID to log in using Google, Yahoo or any other OpenID provider.
+  </p>
+  
+  <div style="float:left;width:49%;height:220px;border-right: 1px solid #aaaaaa">
+    <p>
+      Please enter your e-mail address and password:
+    </p>
+    
+    <p>
+      <xw:label value="E-mail" styleClass="short"/><xw:inputText id="email" styleClass="medium"/>
+    </p>    
+    
+    <p>
+      <xw:label value="Password" styleClass="short"/><xw:inputText id="password" styleClass="short"/>    
+    </p>
+    
+    <div class="buttonBar">   
+      <xw:button label="Login" styleClass="standard">
+        <xw:event type="onclick"><xw:action type="script">alert("logging in");</xw:action></xw:event>    
+      </xw:button>       
+    </div>    
+    
+  </div>
+  
+  <div style="float:right;width:49%;margin-right:4px">
+    <p>
+      Or, select one of the following OpenID providers:
+    </p>
+    
+    
+  </div>
+  
+  <br style="clear:both"/>
+  
+
+</xw:view>

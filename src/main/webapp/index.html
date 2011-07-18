@@ -27,6 +27,7 @@
     <div id="container">
       <div id="header">
         <div id="logo" onclick="javascript:xw.openView('home.xw', 'content')"></div>
+        <div id="headerMenu"></div>
         <div id="menu"></div>
       </div>
       
@@ -37,8 +38,10 @@
   
   <script type="text/javascript">        
 //    Seam.debug = true;  
+    
     xw.openView("menu.xw", "menu");
     xw.openView("home.xw", "content");
+    xw.openView("header.xw", "headerMenu");
   </script>
   
 </html>
