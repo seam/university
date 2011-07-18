@@ -2,13 +2,13 @@
 <xw:view xmlns="http://www.w3.org/1999/xhtml" xmlns:xw="http://xwidgets.org/core">
   
   <p>
-    You may log in by using either a registered Seam University account, or alternatively you may 
+    You may log in by using either a previously registered Seam University account, or alternatively you may 
     use OpenID to log in using Google, Yahoo or any other OpenID provider.
   </p>
   
   <div style="float:left;width:49%;height:220px;border-right: 1px solid #aaaaaa">
     <p>
-      Please enter your e-mail address and password:
+      Please login with your Seam University account:
     </p>
     
     <p>
@@ -31,7 +31,33 @@
     <p>
       Or, select one of the following OpenID providers:
     </p>
+
+    <div>    
+      <xw:button styleClass="openId google">
+      </xw:button>
+      <xw:button styleClass="openId yahoo">
+      </xw:button>   
+      <xw:button styleClass="openId verisign">
+      </xw:button>    
+    </div>
     
+    <div>    
+      <xw:button styleClass="openId livejournal">
+      </xw:button>
+      <xw:button styleClass="openId blogger">
+      </xw:button>   
+      <xw:button styleClass="openId flickr">
+      </xw:button>    
+    </div>
+    
+    <div>    
+      <xw:button styleClass="openId wordpress">
+      </xw:button>
+      <xw:button styleClass="openId myopenid">
+      </xw:button>   
+      <xw:button styleClass="openId claimid">
+      </xw:button>    
+    </div>        
     
   </div>
   
