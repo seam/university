@@ -34,10 +34,20 @@
       <div id="content"></div>
     </div>
     
+    <div id="ajaxLoading"></div>
+    
   </body>  
   
   <script type="text/javascript">        
 //    Seam.debug = true;  
+
+    Seam.displayLoadingMessage = function() {
+      document.getElementById("ajaxLoading").style.display = "block";
+    };
+    
+    Seam.hideLoadingMessage = function() {
+      document.getElementById("ajaxLoading").style.display = "none";    
+    };
     
     xw.openView("menu.xw", "menu");
     xw.openView("home.xw", "content");

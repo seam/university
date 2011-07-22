@@ -131,6 +131,16 @@ div#menu {
   top: -14px;
 }
 
+div#ajaxLoading {
+  position: absolute;
+  display: none;
+  top: 0px;
+  right: 0px;
+  height: 28px;
+  width: 28px;
+  background: url(ajax-loader.gif) top left no-repeat;
+}
+
 div.title {
   font-family: "abeatbyKaiRegular", sans-serif;
   color: #cf8238;
