@@ -16,7 +16,7 @@
     </p>    
     
     <p>
-      <xw:label value="Password" styleClass="short"/><xw:inputSecret id="password" styleClass="short"/>    
+      <xw:label value="Password" styleClass="short"/><xw:inputSecret id="password" styleClass="medium"/>    
     </p>
     
     <div class="buttonBar">   

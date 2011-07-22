@@ -103,6 +103,16 @@ div.xwPopupTitle {
   font-weight: normal;
 }
 
+div.xwPopupCloseButton {
+  position: absolute;
+  top: -12px;
+  right: -15px;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  background: url('close_button.png') top left no-repeat;
+}
+
 #content {
   position: absolute;
   top: 82px;
