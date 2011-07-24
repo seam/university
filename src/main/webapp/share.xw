@@ -162,7 +162,7 @@
     var contentAction = Seam.createBean("org.jboss.seam.university.action.ContentAction");
     
     var cb = function(result) {
-      if (result) { xw.openView("home.xw", "content"); }
+      if (result) { xw.open("home.xw", null, "content"); }
     }; 
     
     if (contentLocation.getValue() == "local") {

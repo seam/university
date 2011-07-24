@@ -2,37 +2,37 @@
 <xw:view xmlns="http://www.w3.org/1999/xhtml" xmlns:xw="http://xwidgets.org/core">
   <xw:link styleClass="menu" caption="learn">
     <xw:event type="onclick">
-      <xw:action type="script">xw.openView("learn.xw", "content")</xw:action>
+      <xw:action type="script">xw.open("learn.xw", null, "content")</xw:action>
     </xw:event>
   </xw:link>  
 
   <xw:link styleClass="menu" caption="share">
     <xw:event type="onclick">
-      <xw:action type="script">xw.openView("share.xw", "content")</xw:action>
+      <xw:action type="script">xw.open("share.xw", null, "content")</xw:action>
     </xw:event>
   </xw:link>
   
   <xw:link styleClass="menu" caption="about">
     <xw:event type="onclick">
-      <xw:action type="script">xw.openView("about.xw", "content")</xw:action>
+      <xw:action type="script">xw.open("about.xw", null, "content")</xw:action>
     </xw:event>
   </xw:link>
     
   <xw:link styleClass="menu" caption="settings">
     <xw:event type="onclick">
-      <xw:action type="script">xw.openView("settings.xw", "content")</xw:action>
+      <xw:action type="script">xw.open("settings.xw", null, "content")</xw:action>
     </xw:event>
   </xw:link>
     
   <xw:link styleClass="menu" caption="profile">
     <xw:event type="onclick">
-      <xw:action type="script">xw.openView("profile.xw", "content")</xw:action>
+      <xw:action type="script">xw.open("profile.xw", null, "content")</xw:action>
     </xw:event>
   </xw:link>
     
   <xw:link styleClass="menu" caption="feeds">
     <xw:event type="onclick">
-      <xw:action type="script">xw.openView("feeds.xw", "content")</xw:action>
+      <xw:action type="script">xw.open("feeds.xw", null, "content")</xw:action>
     </xw:event>
   </xw:link>  
 </xw:view>
