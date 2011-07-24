@@ -26,7 +26,7 @@
   <body>
     <div id="container">
       <div id="header">
-        <div id="logo" onclick="javascript:xw.openView('home.xw', 'content')"></div>
+        <div id="logo" onclick="javascript:xw.open('home.xw', 'content')"></div>
         <div id="headerMenu"></div>
         <div id="menu"></div>
       </div>
@@ -49,11 +49,11 @@
       document.getElementById("ajaxLoading").style.display = "none";    
     };
     
-    //xw.openDataModule("dm_main.xw");
+    //xw.open("dm_main.xw");
     
-    xw.openView("menu.xw", "menu");
-    xw.openView("home.xw", "content");
-    xw.openView("header.xw", "headerMenu");
+    xw.open("menu.xw", null, "menu");
+    xw.open("home.xw", null, "content");
+    xw.open("header.xw", null, "headerMenu");
   </script>
   
 </html>
