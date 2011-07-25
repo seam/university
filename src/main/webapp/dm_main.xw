@@ -3,6 +3,12 @@
   xmlns:xw="http://xwidgets.org/core"
   xmlns:seam="http://seam.jboss.org/xwidgets">
 
+  <seam:remoteMethod
+    remoteClass="org.jboss.seam.university.action.CategorySearch" 
+    remoteMethod="listCategories"
+    elVariableName="categoryList"
+    refresh="600"/>
+
   <seam:identity id="identity"/>
 
 </xw:dataModule>

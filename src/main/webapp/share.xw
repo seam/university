@@ -28,13 +28,7 @@
       <p>
         To get started, select the type of content that you would like to submit from the following list:
       </p>
-      
-      <seam:remoteMethodELResolver 
-        remoteClass="org.jboss.seam.university.action.CategorySearch" 
-        remoteMethod="listCategories"
-        elVariableName="categoryList"
-        refresh="600"/>
-       
+             
       <xw:select id="selectedCategory">
         <xw:selectItems value="#{categoryList}"
                         var="cat"
