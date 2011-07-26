@@ -10,6 +10,7 @@ import javax.jcr.Session;
 import javax.persistence.EntityManager;
 
 import org.jboss.seam.remoting.annotations.WebRemote;
+import org.jboss.seam.security.annotations.LoggedIn;
 import org.jboss.seam.university.model.Category;
 
 /**
@@ -29,7 +30,7 @@ public @RequestScoped class ContentAction {
     
     @Inject TempFileManager fileManager;
         
-    @WebRemote 
+    @WebRemote @LoggedIn
     public boolean saveLocalContent(Category category, String title, String content) throws Exception  {   
         
         if (title == null) {

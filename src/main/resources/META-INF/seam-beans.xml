@@ -10,10 +10,10 @@
    <plidm:JpaIdentityStoreConfiguration>
       <s:replaces/>
       <plidm:identityClass>org.jboss.seam.university.model.IdentityObject</plidm:identityClass>
-      <plidm:credentialClass>org.jboss.seam.university.model.model.IdentityObjectCredential</plidm:credentialClass>
-      <plidm:relationshipClass>org.jboss.seam.university.model.model.IdentityObjectRelationship</plidm:relationshipClass>
-      <plidm:roleTypeClass>org.jboss.seam.university.model.model.IdentityRoleName</plidm:roleTypeClass>
-      <plidm:attributeClass>org.jboss.seam.university.model.model.IdentityObjectAttribute</plidm:attributeClass>
+      <plidm:credentialClass>org.jboss.seam.university.model.IdentityObjectCredential</plidm:credentialClass>
+      <plidm:relationshipClass>org.jboss.seam.university.model.IdentityObjectRelationship</plidm:relationshipClass>
+      <plidm:roleTypeClass>org.jboss.seam.university.model.IdentityRoleName</plidm:roleTypeClass>
+      <plidm:attributeClass>org.jboss.seam.university.model.IdentityObjectAttribute</plidm:attributeClass>
    </plidm:JpaIdentityStoreConfiguration>
    
 </beans>
