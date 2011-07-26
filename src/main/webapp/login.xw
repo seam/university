@@ -23,7 +23,7 @@
       <xw:button label="Login" styleClass="standard">
         <xw:event type="onclick"><xw:action type="script">identity.login(email.getValue(), password.getValue())</xw:action></xw:event>    
       </xw:button>       
-    </div>    
+    </div>
     
   </div>
   
