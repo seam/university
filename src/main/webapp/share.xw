@@ -5,171 +5,181 @@
  
   <h1>Share Content</h1>
 
-  <xw:tabPanel id="wizard">
-    <xw:event type="beforeScroll">
-      <xw:action type="script"><![CDATA[
-        var cat = selectedCategory.getObjectValue();
-        
-        if (cat != null) {
-          wizard.setEnabled("location", cat.localEditor != null && cat.remoteEditor != null);
-        }
-        
-        wizard.setEnabled("editor", contentLocation.getValue() == "local" && cat.localEditor == "richText");
-        wizard.setEnabled("urlEditor", contentLocation.getValue() == "remote" && cat.remoteEditor == "url");        
-      ]]></xw:action>
-    </xw:event>
-    
-    <xw:tab name="category">
-      <p>
-        Thank you for choosing to share your Seam knowledge with others! This wizard will walk you through
-        the process of submitting your Seam-related content to Seam University.
-      </p>
-            
-      <p>
-        To get started, select the type of content that you would like to submit from the following list:
-      </p>
-             
-      <xw:select id="selectedCategory">
-        <xw:selectItems value="#{categoryList}"
-                        var="cat"
-                        itemValue="#{cat.id}"
-                        itemLabel="#{cat.name}"/>
-      </xw:select>
-      
-      <div class="buttonBar">
-        <xw:button label="Next" styleClass="standard">
-          <xw:event type="onclick"><xw:action type="script">wizard.next();</xw:action></xw:event>    
-        </xw:button>
-      </div>
-    </xw:tab>
-    
-    <xw:tab name="location">
-      <p>
-        Would you like to publish the content on the Seam University web site, or is it hosted on another site?
-      </p>
-      
-      <p>
-        <xw:radio id="contentLocation" styleClass="radio">
-          <xw:selectItem itemValue="local" itemLabel="I would like to publish the content on Seam University"/>
-          <xw:selectItem itemValue="remote" itemLabel="The content is hosted on another site"/>
-        </xw:radio>
-      </p>
-    
-      <div class="buttonBar">
-        <xw:button label="Previous" styleClass="standard">
-          <xw:event type="onclick"><xw:action type="script">wizard.previous()</xw:action></xw:event>    
-        </xw:button>        
-      
-        <xw:button label="Next" styleClass="standard">
-          <xw:event type="onclick"><xw:action type="script">wizard.next();</xw:action></xw:event>    
-        </xw:button>    
-      </div>
-    </xw:tab>
-    
-    <xw:tab name="editor">
-      <p>
-        Please enter a title, followed by the content that you would like to submit.  You may also
-        attach images and other files by clicking the 'Attach a file' link.
-      </p>
-      
-      <p>
-        <xw:label value="Title" styleClass="leftAlign"/><xw:inputText id="title" styleClass="long"/>
-      </p>
-      
-      <xw:fileUpload caption="Attach a file" uploadPath="content/upload"/>
-    
-      <xw:richEdit id="content">
-        <xw:event type="onChange">
-          <xw:action type="script"></xw:action>
-        </xw:event>
-      </xw:richEdit>
-      
-      <div class="buttonBar">
-        <xw:button label="Previous" styleClass="standard">
-          <xw:event type="onclick"><xw:action type="script">wizard.previous()</xw:action></xw:event>    
-        </xw:button>        
-      
-        <xw:button label="Next" styleClass="standard">
-          <xw:event type="onclick"><xw:action type="script">wizard.next();</xw:action></xw:event>    
-        </xw:button>       
-      </div>
-      
-    </xw:tab>
-    
-    <xw:tab name="urlEditor">
-      <p>
-        Please enter a title, followed by the url of the content that you would like to submit:
-      </p>
-      
-      <p>
-        <xw:label value="Title" styleClass="leftAlign"/><xw:inputText id="urlTitle" styleClass="long"/>
-      </p>
-      
-      <p>
-        <xw:label value="URL" styleClass="leftAlign"/><xw:inputText id="url" styleClass="long"/>
-      </p>
-      
-      <div class="buttonBar">
-        <xw:button label="Previous" styleClass="standard">
-          <xw:event type="onclick"><xw:action type="script">wizard.previous()</xw:action></xw:event>    
-        </xw:button>        
-      
-        <xw:button label="Next" styleClass="standard">
-          <xw:event type="onclick"><xw:action type="script">wizard.next();</xw:action></xw:event>    
-        </xw:button>       
-      </div>       
-    
-    </xw:tab>
-    
-    <xw:tab name="keywords">
-      <p>
-        To allow other users to easily locate this content, please select one or more relevant 
-        keywords from the following list, or enter some new keywords.
-      </p>
-    
-      <div class="buttonBar">
-        <xw:button label="Previous" styleClass="standard">
-          <xw:event type="onclick"><xw:action type="script">wizard.previous()</xw:action></xw:event>    
-        </xw:button>        
-      
-        <xw:button label="Next" styleClass="standard">
-          <xw:event type="onclick"><xw:action type="script">wizard.next();</xw:action></xw:event>    
-        </xw:button>       
-      </div>    
-    </xw:tab>
-    
-    <xw:tab name="preview">
-      <p>
-        Please review your content:
-      </p>
-    
-      <div class="buttonBar">  
-        <xw:button label="Previous" styleClass="standard">
-          <xw:event type="onclick"><xw:action type="script">wizard.previous()</xw:action></xw:event>    
-        </xw:button>        
-        
-        <xw:button label="Save" styleClass="standard">
-          <xw:event type="onclick"><xw:action type="script"><![CDATA[
-  var cat = selectedCategory.getObjectValue();  
-  
-  if (cat != null) {
-    var contentAction = Seam.createBean("org.jboss.seam.university.action.ContentAction");
-    
-    var cb = function(result) {
-      if (result) { xw.open("home.xw", null, "content"); }
-    }; 
-    
-    if (contentLocation.getValue() == "local") {
-      contentAction.saveLocalContent(cat, title.getValue(), content.getValue(), cb);
-    } else {
-      contentAction.saveRemoteContent(cat, title.getValue(), content.getValue(), cb);
-    }
-  }          
+  <xw:fragment rendered="#{identity.loggedIn}">
+
+    <xw:tabPanel id="wizard">
+      <xw:event type="beforeScroll">
+        <xw:action type="script"><![CDATA[
+          var cat = selectedCategory.getObjectValue();
           
-          ]]></xw:action></xw:event>    
-        </xw:button>     
-      </div>
-    </xw:tab>
-  </xw:tabPanel>
+          if (cat != null) {
+            wizard.setEnabled("location", cat.localEditor != null && cat.remoteEditor != null);
+          }
+          
+          wizard.setEnabled("editor", contentLocation.getValue() == "local" && cat.localEditor == "richText");
+          wizard.setEnabled("urlEditor", contentLocation.getValue() == "remote" && cat.remoteEditor == "url");        
+        ]]></xw:action>
+      </xw:event>
+      
+      <xw:tab name="category">
+        <p>
+          Thank you for choosing to share your Seam knowledge with others! This wizard will walk you through
+          the process of submitting your Seam-related content to Seam University.
+        </p>
+              
+        <p>
+          To get started, select the type of content that you would like to submit from the following list:
+        </p>
+               
+        <xw:select id="selectedCategory">
+          <xw:selectItems value="#{categoryList}"
+                          var="cat"
+                          itemValue="#{cat.id}"
+                          itemLabel="#{cat.name}"/>
+        </xw:select>
+        
+        <div class="buttonBar">
+          <xw:button label="Next" styleClass="standard">
+            <xw:event type="onclick"><xw:action type="script">wizard.next();</xw:action></xw:event>    
+          </xw:button>
+        </div>
+      </xw:tab>
+      
+      <xw:tab name="location">
+        <p>
+          Would you like to publish the content on the Seam University web site, or is it hosted on another site?
+        </p>
+        
+        <p>
+          <xw:radio id="contentLocation" styleClass="radio">
+            <xw:selectItem itemValue="local" itemLabel="I would like to publish the content on Seam University"/>
+            <xw:selectItem itemValue="remote" itemLabel="The content is hosted on another site"/>
+          </xw:radio>
+        </p>
+      
+        <div class="buttonBar">
+          <xw:button label="Previous" styleClass="standard">
+            <xw:event type="onclick"><xw:action type="script">wizard.previous()</xw:action></xw:event>    
+          </xw:button>        
+        
+          <xw:button label="Next" styleClass="standard">
+            <xw:event type="onclick"><xw:action type="script">wizard.next();</xw:action></xw:event>    
+          </xw:button>    
+        </div>
+      </xw:tab>
+      
+      <xw:tab name="editor">
+        <p>
+          Please enter a title, followed by the content that you would like to submit.  You may also
+          attach images and other files by clicking the 'Attach a file' link.
+        </p>
+        
+        <p>
+          <xw:label value="Title" styleClass="leftAlign"/><xw:inputText id="title" styleClass="long"/>
+        </p>
+        
+        <xw:fileUpload caption="Attach a file" uploadPath="content/upload"/>
+      
+        <xw:richEdit id="content">
+          <xw:event type="onChange">
+            <xw:action type="script"></xw:action>
+          </xw:event>
+        </xw:richEdit>
+        
+        <div class="buttonBar">
+          <xw:button label="Previous" styleClass="standard">
+            <xw:event type="onclick"><xw:action type="script">wizard.previous()</xw:action></xw:event>    
+          </xw:button>        
+        
+          <xw:button label="Next" styleClass="standard">
+            <xw:event type="onclick"><xw:action type="script">wizard.next();</xw:action></xw:event>    
+          </xw:button>       
+        </div>
+        
+      </xw:tab>
+      
+      <xw:tab name="urlEditor">
+        <p>
+          Please enter a title, followed by the url of the content that you would like to submit:
+        </p>
+        
+        <p>
+          <xw:label value="Title" styleClass="leftAlign"/><xw:inputText id="urlTitle" styleClass="long"/>
+        </p>
+        
+        <p>
+          <xw:label value="URL" styleClass="leftAlign"/><xw:inputText id="url" styleClass="long"/>
+        </p>
+        
+        <div class="buttonBar">
+          <xw:button label="Previous" styleClass="standard">
+            <xw:event type="onclick"><xw:action type="script">wizard.previous()</xw:action></xw:event>    
+          </xw:button>        
+        
+          <xw:button label="Next" styleClass="standard">
+            <xw:event type="onclick"><xw:action type="script">wizard.next();</xw:action></xw:event>    
+          </xw:button>       
+        </div>       
+      
+      </xw:tab>
+      
+      <xw:tab name="keywords">
+        <p>
+          To allow other users to easily locate this content, please select one or more relevant 
+          keywords from the following list, or enter some new keywords.
+        </p>
+      
+        <div class="buttonBar">
+          <xw:button label="Previous" styleClass="standard">
+            <xw:event type="onclick"><xw:action type="script">wizard.previous()</xw:action></xw:event>    
+          </xw:button>        
+        
+          <xw:button label="Next" styleClass="standard">
+            <xw:event type="onclick"><xw:action type="script">wizard.next();</xw:action></xw:event>    
+          </xw:button>       
+        </div>    
+      </xw:tab>
+      
+      <xw:tab name="preview">
+        <p>
+          Please review your content:
+        </p>
+      
+        <div class="buttonBar">  
+          <xw:button label="Previous" styleClass="standard">
+            <xw:event type="onclick"><xw:action type="script">wizard.previous()</xw:action></xw:event>    
+          </xw:button>        
+          
+          <xw:button label="Save" styleClass="standard">
+            <xw:event type="onclick"><xw:action type="script"><![CDATA[
+    var cat = selectedCategory.getObjectValue();  
+    
+    if (cat != null) {
+      var contentAction = Seam.createBean("org.jboss.seam.university.action.ContentAction");
+      
+      var cb = function(result) {
+        if (result) { xw.open("home.xw", null, "content"); }
+      }; 
+      
+      if (contentLocation.getValue() == "local") {
+        contentAction.saveLocalContent(cat, title.getValue(), content.getValue(), cb);
+      } else {
+        contentAction.saveRemoteContent(cat, title.getValue(), content.getValue(), cb);
+      }
+    }          
+            
+            ]]></xw:action></xw:event>    
+          </xw:button>     
+        </div>
+      </xw:tab>
+    </xw:tabPanel>
+  </xw:fragment>
+  
+  <xw:fragment rendered="#{!identity.loggedIn}">
+    <p>
+      You must be signed in to be able to post content.  Please click the 'Sign In' link
+      at the top of the page to sign in.
+    </p>
+  </xw:fragment>
 
 </xw:view>
