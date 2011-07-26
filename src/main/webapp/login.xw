@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xw:view xmlns="http://www.w3.org/1999/xhtml" xmlns:xw="http://xwidgets.org/core">
   
+  <xw:eventObserver event="org.jboss.seam.identity.loggedIn">
+    <xw:event type="onFire"><xw:action type="script">xw.closePopup();</xw:action></xw:event>
+  </xw:eventObserver>
+  
   <p>
     You may log in by using either a previously registered Seam University account, or alternatively you may 
     use OpenID to log in using Google, Yahoo or any other OpenID provider.
@@ -62,6 +66,5 @@
   </div>
   
   <br style="clear:both"/>
-  
 
 </xw:view>
