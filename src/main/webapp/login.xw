@@ -25,7 +25,7 @@
     
     <div class="buttonBar">   
       <xw:button label="Login" styleClass="standard">
-        <xw:event type="onclick"><xw:action type="script">identity.login(email.getValue(), password.getValue())</xw:action></xw:event>    
+        <xw:event type="onclick"><xw:action type="script">identity.login(email.getValue(), password.getValue())</xw:action></xw:event>
       </xw:button>       
     </div>
     
@@ -38,6 +38,7 @@
 
     <div>    
       <xw:button styleClass="openId google">
+        <xw:event type="onclick"><xw:action type="script">identity.openIdLogin("google");</xw:action></xw:event>
       </xw:button>
       <xw:button styleClass="openId yahoo">
       </xw:button>   

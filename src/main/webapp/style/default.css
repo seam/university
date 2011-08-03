@@ -400,8 +400,8 @@ button.standard:active {
 /* OpenID buttons */
 
 button.openId {
-  width: 100px;
-  height: 36px;
+  width: 96px;
+  height: 34px;
   position:relative;
   display:inline-block;
   font-size: 12px;
@@ -410,27 +410,10 @@ button.openId {
   text-shadow:1px 1px 0 #ffffff;
   white-space:nowrap;
   border:none;
-  margin-left: 4px;
-  margin-top: 4px;
+  margin-left: 8px;
+  margin-top: 8px;
   overflow:visible;
   cursor:pointer;
-  border:1px solid #d4d4d4;
-  -webkit-border-radius:5px;
-  -moz-border-radius:5px;
-  border-radius:5px;
-}
-
-button.openId:hover {
-  color:#ffffff;
-  text-decoration:none;
-  text-shadow:-1px -1px 0 rgba(0,0,0,0.3);
-  border-color:#dead7f;
-  border-bottom-color:#b06115;
-}
-
-button.openId:active {
-  border-color:#b06115;
-  border-bottom-color:#dead7f;
 }
 
 button.google {
