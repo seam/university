@@ -8,13 +8,17 @@
    xmlns:plidm="urn:java:org.jboss.seam.security.management.picketlink"
    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://jboss.org/schema/cdi/beans_1_0.xsd">
    
-   <openid:OpenIdRpBean>
+   <openid:OpenIdConfiguration>
       <s:modifies/>
       <openid:hostName>www.seamuniversity.org</openid:hostName>
       <openid:port>8080</openid:port>
       <openid:protocol>http</openid:protocol>
       <openid:returnToPath>/ajaxopenid/callback</openid:returnToPath>
-   </openid:OpenIdRpBean>   
+   </openid:OpenIdConfiguration>   
+   
+   <openid:OpenIdRpInApplicationScopeProducer>
+      <s:modifies/>
+   </openid:OpenIdRpInApplicationScopeProducer>   
         
    <plidm:JpaIdentityStoreConfiguration>
       <s:replaces/>

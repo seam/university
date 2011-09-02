@@ -4,5 +4,28 @@
  xmlns:seam="http://seam.jboss.org/xwidgets">
  
    <h1>Learn</h1>
+   
+   <seam:remoteMethod
+     id="findContent"
+     remoteClass="org.jboss.seam.university.action.ContentSearch" 
+     remoteMethod="findContent"
+     elVariableName="searchResults"
+     enabled="false"
+     refresh="600"/> 
+   
+   <p>
+     Search: 
+     <xw:inputText id="query" styleClass="long"/>
+     <xw:button label="Find" styleClass="standard">
+       <xw:event type="onclick"><xw:action type="script"><![CDATA[
+         findContent.enabled = true;
+         findContent.invoke(query.getValue());
+       ]]></xw:action></xw:event>
+     </xw:button>
+   </p>
+   
+   <xw:repeat value="#{searchResults}" var="result">
+     <p>Found result: #{result.title}</p>
+   </xw:repeat>
 
 </xw:view>

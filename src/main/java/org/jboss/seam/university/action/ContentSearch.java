@@ -6,13 +6,16 @@ import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.jcr.Node;
+import javax.jcr.NodeIterator;
 import javax.jcr.Repository;
 import javax.jcr.Session;
+import javax.jcr.query.Query;
+import javax.jcr.query.QueryManager;
+import javax.jcr.query.QueryResult;
 import javax.persistence.EntityManager;
 
-import org.jboss.seam.jcr.annotations.JcrConfiguration;
 import org.jboss.seam.remoting.annotations.WebRemote;
-import org.jboss.seam.university.dto.Content;
+import org.jboss.seam.university.dto.ContentDTO;
 import org.jboss.seam.university.model.LatestContent;
 
 public @RequestScoped class ContentSearch {
@@ -22,20 +25,20 @@ public @RequestScoped class ContentSearch {
     @Inject Repository repository;
     
     @WebRemote
-    public List<Content> listLatestContent() throws Exception  {   
+    public List<ContentDTO> listLatestContent() throws Exception  {   
         
         List<LatestContent> latest = entityManager
                 .createQuery("select c from LatestContent c order by updated desc")
                 .getResultList();
         
-        List<Content> latestContent = new ArrayList<Content>();
+        List<ContentDTO> latestContent = new ArrayList<ContentDTO>();
         
         Session session = repository.login("default");
         try {
             
             for (LatestContent lc : latest) {
                 Node contentNode = session.getNodeByIdentifier(lc.getUuid());
-                Content content = new Content();
+                ContentDTO content = new ContentDTO();
                 content.setTitle(contentNode.getName());
                 content.setContent(contentNode.getProperty("content").getString());
                 content.setCreated(lc.getUpdated());
@@ -47,5 +50,27 @@ public @RequestScoped class ContentSearch {
         finally {
             session.logout();
         }
+    }
+    
+    @WebRemote
+    public List<ContentDTO> findContent(String expr) throws Exception {
+        List<ContentDTO> results = new ArrayList<ContentDTO>();
+        
+        Session session = repository.login("default");
+        QueryManager qm = session.getWorkspace().getQueryManager();
+        Query query = qm.createQuery(expr,  "Search");
+        
+        QueryResult r = query.execute();
+        
+        NodeIterator ni = r.getNodes();
+        while (ni.hasNext()) {
+           Node n = ni.nextNode();
+           ContentDTO content = new ContentDTO();
+           content.setTitle(n.getName());
+           content.setContent(n.getProperty("content").getString());
+           results.add(content);
+        }
+        
+        return results;
     }
 }
