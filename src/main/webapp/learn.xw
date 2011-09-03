@@ -14,18 +14,25 @@
      refresh="600"/> 
    
    <p>
-     Search 
-     <xw:inputText id="query" styleClass="long"/>
-     <xw:button label="Find" styleClass="standard">
-       <xw:event type="onclick"><xw:action type="script"><![CDATA[
-         findContent.enabled = true;
-         findContent.invoke(query.getValue());
-       ]]></xw:action></xw:event>
-     </xw:button>
+     <form>
+       Search 
+       <xw:inputText id="query" styleClass="long"/>
+       <xw:button label="Find" styleClass="standard">
+         <xw:event type="onclick"><xw:action type="script"><![CDATA[
+           findContent.enabled = true;
+           findContent.invoke(query.getValue());
+           resultList.setRendered(true);
+         ]]></xw:action></xw:event>
+       </xw:button>
+     </form>
    </p>
-   
-   <xw:repeat value="#{searchResults}" var="result">
-     <p>Found result: #{result.title}</p>
-   </xw:repeat>
+
+   <xw:fragment id="resultList" rendered="false">
+     <div>Search results</div>
+     <xw:repeat value="#{searchResults}" var="result">
+       <div class="contentTitle">#{result.title}</div>
+       <div class="contentSummary">#{result.summary}</div>
+     </xw:repeat>
+   </xw:fragment>
 
 </xw:view>
