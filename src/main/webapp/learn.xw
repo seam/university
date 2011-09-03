@@ -3,6 +3,15 @@
  xmlns:xw="http://xwidgets.org/core"
  xmlns:seam="http://seam.jboss.org/xwidgets">
  
+   <xw:event type="afterRender">
+     <xw:action type="script"><![CDATA[
+       if (params.searchQuery != null) {
+         query.setValue(params.searchQuery);
+         findButton.onclick.invoke();
+       }
+     ]]></xw:action>
+   </xw:event> 
+ 
    <h1>Learn</h1>
    
    <seam:remoteMethod
@@ -17,7 +26,7 @@
      <form>
        Search 
        <xw:inputText id="query" styleClass="long"/>
-       <xw:button label="Find" styleClass="standard">
+       <xw:button id="findButton" label="Find" styleClass="standard">
          <xw:event type="onclick"><xw:action type="script"><![CDATA[
            findContent.enabled = true;
            findContent.invoke(query.getValue());

@@ -251,33 +251,6 @@ input.medium {
   height: 20px;
 }
 
-/* CSS Styles for Sliding Door buttons */
-		
-button { 
-	position: relative;
-	border: 0; 
-	padding: 0;
-	cursor: pointer;
-	overflow: visible; /* removes extra side padding in IE */
-}
-
-button::-moz-focus-inner {
-	border: none;  /* overrides extra padding in Firefox */
-}
-
-button span { 
-	position: relative;
-	display: block; 
-	white-space: nowrap;	
-}
-
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-	/* Safari and Google Chrome only - fix margins */
-	button span {
-		margin-top: -1px;
-	}
-}
-
 div.buttonBar {
   float: right;
   margin-top: 4px;
@@ -326,6 +299,50 @@ button.standard:hover {
 }
 
 button.standard:active {
+  border-color:#b06115;
+  border-bottom-color:#dead7f;
+  background:#3072b3;
+  filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#cf8238',endColorstr='#f6e4d5');
+  background:-webkit-gradient(linear,left top,left bottom,from(#cf8238),to(#f6e4d5));
+  background:-moz-linear-gradient(top,#cf8238,#f6e4d5);
+}
+
+button.small {
+  width: 60px;
+  height: 14px;
+  position:relative;
+  display:inline-block;
+  font-size: 8px;
+  font-weight: bold;
+  color:#333333;
+  text-shadow:1px 1px 0 #ffffff;
+  white-space:nowrap;
+  border:none;
+  overflow:visible;
+  cursor:pointer;
+  border:1px solid #d4d4d4;
+  -webkit-border-radius:3px;
+  -moz-border-radius:3px;
+  border-radius:3px;
+  background:#f4f4f4;
+  filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#ffffff',endColorstr='#dddddd');
+  background:-webkit-gradient(linear,left top,left bottom,from(#ffffff),to(#dddddd));
+  background:-moz-linear-gradient(top,#ffffff,#dddddd);
+}
+
+button.small:hover {
+  color:#ffffff;
+  text-decoration:none;
+  text-shadow:-1px -1px 0 rgba(0,0,0,0.3);
+  border-color:#dead7f;
+  border-bottom-color:#b06115;
+  background:#599bdc;
+  filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#f6e4d5',endColorstr='#cf8238');
+  background:-webkit-gradient(linear,left top,left bottom,from(#f6e4d5),to(#cf8238));
+  background:-moz-linear-gradient(top,#f6e4d5,#cf8238);
+}
+
+button.small:active {
   border-color:#b06115;
   border-bottom-color:#dead7f;
   background:#3072b3;

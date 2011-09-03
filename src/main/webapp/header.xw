@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xw:view xmlns="http://www.w3.org/1999/xhtml" xmlns:xw="http://xwidgets.org/core">
+  <div style="float:left;margin-right: 32px">
+    <xw:inputSearch id="searchQuery" styleClass="short">
+        <xw:event type="onsearch">
+          <xw:action type="script">xw.open("learn.xw", {searchQuery: searchQuery.getValue()}, "content");</xw:action>
+        </xw:event>    
+    </xw:inputSearch>
+  </div>
+
   <xw:fragment rendered="#{!identity.loggedIn}">
     <xw:link styleClass="header" caption="Sign In">
       <xw:event type="onclick">
