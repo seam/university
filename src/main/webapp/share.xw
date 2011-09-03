@@ -161,14 +161,9 @@
         if (result) { xw.open("home.xw", null, "content"); }
       }; 
       
-      if (contentLocation.getValue() == "local") {
-        contentAction.saveLocalContent(cat, title.getValue(), content.getValue(), cb);
-      } else {
-        contentAction.saveRemoteContent(cat, title.getValue(), content.getValue(), cb);
-      }
+      contentAction.saveContent(cat, contentLocation.getValue() === "local", title.getValue(), "summary", content.getValue(), [], cb);
     }          
-            
-            ]]></xw:action></xw:event>    
+            ]]></xw:action></xw:event>
           </xw:button>     
         </div>
       </xw:tab>

@@ -14,7 +14,7 @@
      refresh="600"/> 
    
    <p>
-     Search: 
+     Search 
      <xw:inputText id="query" styleClass="long"/>
      <xw:button label="Find" styleClass="standard">
        <xw:event type="onclick"><xw:action type="script"><![CDATA[

@@ -75,6 +75,11 @@
          <groupId>org.jboss.seam.transaction</groupId>
          <artifactId>seam-transaction</artifactId>
       </dependency>
+      
+      <dependency>
+         <groupId>org.jboss.seam.validation</groupId>
+         <artifactId>seam-validation</artifactId>
+      </dependency>
 
       <dependency>
          <groupId>org.hibernate.javax.persistence</groupId>

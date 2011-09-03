@@ -17,7 +17,7 @@ public class ContentKeyword implements Serializable {
     private static final long serialVersionUID = 591389384673321084L;
     
     @Id @GeneratedValue private Long id;
-    //@ManyToOne private Content content;
+    @ManyToOne private Content content;
     @ManyToOne private Keyword keyword;
     
     public void setId(Long id) {
@@ -27,7 +27,7 @@ public class ContentKeyword implements Serializable {
     public Long getId() {
         return id;
     }
-    /*
+    
     public void setContent(Content content) {
         this.content = content;
     }
@@ -35,7 +35,7 @@ public class ContentKeyword implements Serializable {
     public Content getContent() {
         return content;
     }
-    */
+    
     public void setKeyword(Keyword keyword) {
         this.keyword = keyword;
     }
@@ -43,6 +43,5 @@ public class ContentKeyword implements Serializable {
     public Keyword getKeyword() {
         return keyword;
     }
-    
 
 }

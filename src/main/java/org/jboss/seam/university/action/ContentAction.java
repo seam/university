@@ -11,7 +11,9 @@ import javax.persistence.EntityManager;
 
 import org.jboss.seam.remoting.annotations.WebRemote;
 import org.jboss.seam.security.annotations.LoggedIn;
+import org.jboss.seam.transaction.Transactional;
 import org.jboss.seam.university.model.Category;
+import org.jboss.seam.university.model.Content;
 
 /**
  * 
@@ -19,19 +21,18 @@ import org.jboss.seam.university.model.Category;
  *
  */
 public @RequestScoped class ContentAction {
-
-    //@Inject Logging log;
-    
-    @Inject EntityManager entityManager;
-    
+       
     @Inject Repository repository;
     
     @Inject LatestContentAction latestContent;
+    //@Inject KeywordAction keywordAction;
     
     @Inject TempFileManager fileManager;
+    
+    @Inject EntityManager entityManager;
         
     @WebRemote @LoggedIn
-    public boolean saveLocalContent(Category category, String title, String content) throws Exception  {   
+    public boolean saveContent(Category category, boolean local, String title, String summary, String contentText, String[] keywords) throws Exception  {   
         
         if (title == null) {
             throw new IllegalArgumentException("Error - title parameter cannot be null");
@@ -44,18 +45,29 @@ public @RequestScoped class ContentAction {
                 rootNode.addNode(category.getName());
 
             Node contentNode = categoryParent.addNode(title);
-            contentNode.setProperty("content", content);
-
-            Date now = new Date();
-            //contentNode.setProperty("created", now);
-            session.save();
+            contentNode.setProperty("content", contentText);
+                                   
+            Content content = createContent(contentNode.getIdentifier());
+            //            keywordAction.setContentKeywords()
             
-            latestContent.add(contentNode.getIdentifier(), now);
+            latestContent.add(content);            
+            
+            session.save();
             
             return true;
         }
         finally {
             session.logout();
         }
+    }
+    
+    public @Transactional Content createContent(String identifier) {
+        Content content = new Content();
+        content.setIdentifier(identifier);
+        Date now = new Date();
+        content.setCreated(now);
+        content.setUpdated(now);
+        entityManager.persist(content);
+        return content;        
     }
 }

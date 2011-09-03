@@ -148,11 +148,23 @@ div#ajaxLoading {
   background: url(ajax-loader.gif) top left no-repeat;
 }
 
-div.title {
+div.contentTitle {
   font-family: "abeatbyKaiRegular", sans-serif;
   color: #cf8238;
   font-size: 28px;
   margin-top: 8px;
+}
+
+div.contentHeader {
+
+}
+
+div.contentBody {
+
+}
+
+div.contentFooter {
+  font-size: 10px;
 }
 
 a.menu, a.menu:visited {

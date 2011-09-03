@@ -16,9 +16,14 @@
       ]]></xw:action>
     </xw:event>
   
-    <div class="title">#{content.title}</div>
-    <div class="contentBody">
-      <xw:text text="#{content.content}"/>
+    <div class="contentTitle">#{content.title}</div>
+    
+    <div class="contentHeader"></div>
+    
+    <div class="contentBody">#{content.content}</div>
+    
+    <div class="contentFooter">
+      <a href="#">#{content.commentCount}<span> Comments</span></a>
     </div>
   </xw:repeat>
 
