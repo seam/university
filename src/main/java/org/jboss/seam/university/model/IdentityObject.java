@@ -25,7 +25,7 @@ public class IdentityObject implements Serializable
    private Long id;
    private String name;
    private IdentityObjectType type;
-   @OneToOne private Member member;
+   private Member member;
    
    @Id @GeneratedValue
    public Long getId()
@@ -61,6 +61,8 @@ public class IdentityObject implements Serializable
       this.type = type;
    }
    
+   @OneToOne 
+   @JoinColumn(name = "MEMBER_ID")
    public Member getMember() {
        return member;
    }

@@ -136,6 +136,7 @@
       <dependency>
          <groupId>org.jboss.seam.security</groupId>
          <artifactId>seam-security</artifactId>
+         <version>3.1.0-SNAPSHOT</version>
       </dependency>
 
       <dependency> 
@@ -190,6 +191,7 @@
          <groupId>org.jboss.seam.solder</groupId>
          <artifactId>seam-solder</artifactId>
          <scope>compile</scope>
+         <version>3.1.0-SNAPSHOT</version>
       </dependency>
 
    </dependencies>

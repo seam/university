@@ -2,7 +2,6 @@ package org.jboss.seam.university.producer;
 
 import java.net.URL;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.Map;
 
 import javax.enterprise.inject.Produces;

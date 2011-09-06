@@ -23,7 +23,7 @@
   </xw:fragment>
   
   <xw:fragment rendered="#{identity.loggedIn}">
-    <span>Welcome, #{identity.attribs.firstname} #{identity.attribs.lastname}</span> |
+    <span>Welcome, #{identity.attribs.firstName} #{identity.attribs.lastName}</span> |
   
     <xw:link styleClass="header" caption="Sign Out">
       <xw:event type="onclick">

@@ -1,4 +1,4 @@
-package org.jboss.seam.university.action;
+package org.jboss.seam.university.system;
 
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.event.Observes;
@@ -29,8 +29,8 @@ public @RequestScoped class MemberValidator {
         
         if (user instanceof OpenIdUser) {
             OpenIdUser oid = (OpenIdUser) user;
-            authResult.setAttribute("firstname", oid.getAttribute("firstname"));
-            authResult.setAttribute("lastname", oid.getAttribute("lastname"));
+            authResult.setAttribute("firstName", oid.getAttribute("firstName"));
+            authResult.setAttribute("lastName", oid.getAttribute("lastName"));
         }
     }
 }
