@@ -20,7 +20,7 @@ public @RequestScoped class CategorySearch {
     @Inject EntityManager entityManager;
     
     @WebRemote
-    public List<Category> listCategories() {
-        return entityManager.createQuery("select c from Category c").getResultList();
+    public List<Category> listCategories() throws Exception {
+        return entityManager.createQuery("select c from Category c order by c.displayOrder", Category.class).getResultList();
     }
 }

@@ -1,7 +1,5 @@
 package org.jboss.seam.university.action;
 
-import java.util.Date;
-
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;

@@ -23,6 +23,17 @@ public class Category implements Serializable {
     private ContentEditor localEditor;
     private ContentEditor remoteEditor;
     private boolean privileged;
+    private int displayOrder;
+    
+    public Category() {}
+    
+    public Category(String name, ContentEditor localEditor, ContentEditor remoteEditor, boolean privileged, int displayOrder) {
+        this.name = name;
+        this.localEditor = localEditor;
+        this.remoteEditor = remoteEditor;
+        this.privileged = privileged;
+        this.displayOrder = displayOrder;
+    }
     
     public Long getId() {
         return id;
@@ -62,5 +73,13 @@ public class Category implements Serializable {
     
     public void setPrivileged(boolean privileged) {
         this.privileged = privileged;
+    }
+
+    public int getDisplayOrder() {
+        return displayOrder;
+    }
+
+    public void setDisplayOrder(int displayOrder) {
+        this.displayOrder = displayOrder;
     }
 }
