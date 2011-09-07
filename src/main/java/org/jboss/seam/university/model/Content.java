@@ -25,6 +25,7 @@ public class Content implements Serializable {
     @NotNull private String identifier;
     private Date created;
     private Date updated;
+    private boolean published;
     private int commentCount;
     
     public long getId() {
@@ -65,5 +66,13 @@ public class Content implements Serializable {
 
     public void setUpdated(Date updated) {
         this.updated = updated;
+    }
+
+    public boolean isPublished() {
+        return published;
+    }
+
+    public void setPublished(boolean published) {
+        this.published = published;
     }
 }

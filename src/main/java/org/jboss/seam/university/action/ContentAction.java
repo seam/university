@@ -50,10 +50,10 @@ public @RequestScoped class ContentAction {
             Content content = createContent(contentNode.getIdentifier());
             //            keywordAction.setContentKeywords()
             
-            latestContent.add(content);            
+            session.save();            
             
-            session.save();
-            
+            latestContent.add(content);
+                       
             return true;
         }
         finally {

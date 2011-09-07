@@ -141,9 +141,21 @@
       </xw:tab>
       
       <xw:tab name="preview">
+        <xw:event type="onActivate">
+          <xw:action type="script"><![CDATA[
+            previewTitle.setValue(title.getValue());
+            previewBody.setValue(content.getValue());
+            SyntaxHighlighter.highlight();
+          ]]></xw:action>
+        </xw:event>      
+      
         <p>
-          Please review your content:
+          Please review your content below.  If you are satisfied with it, please click Save otherwise you may
+          click the Previous button to go back and make further changes.
         </p>
+        
+        <div class="contentTitle"><xw:text id="previewTitle"/></div>
+        <div class="contentBody"><xw:text id="previewBody"/></div>
       
         <div class="buttonBar">  
           <xw:button label="Previous" styleClass="standard">
