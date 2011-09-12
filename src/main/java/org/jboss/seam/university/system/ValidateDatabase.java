@@ -1,21 +1,30 @@
 package org.jboss.seam.university.system;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import javax.enterprise.event.Observes;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.jboss.seam.security.management.picketlink.IdentitySessionProducer;
 import org.jboss.seam.servlet.WebApplication;
 import org.jboss.seam.servlet.event.Initialized;
 import org.jboss.seam.transaction.Transactional;
 import org.jboss.seam.university.model.Category;
 import org.jboss.seam.university.model.Category.ContentEditor;
+import org.jboss.seam.university.model.IdentityObjectCredentialType;
 import org.jboss.seam.university.model.IdentityObjectType;
+import org.picketlink.idm.api.IdentitySession;
+import org.picketlink.idm.api.IdentitySessionFactory;
+import org.picketlink.idm.api.User;
+import org.picketlink.idm.common.exception.IdentityException;
 
 /**
  * Validates that the database contains the minimum required entities to function 
@@ -25,10 +34,13 @@ import org.jboss.seam.university.model.IdentityObjectType;
 public class ValidateDatabase {
     @PersistenceContext EntityManager entityManager;
     
+    @Inject IdentitySessionFactory identitySessionFactory;
+    
     @Transactional
-    public void validate(@Observes @Initialized WebApplication webapp) {
+    public void validate(@Observes @Initialized WebApplication webapp) throws IdentityException {
         validateIdentityObjectTypes();
         validateCategories();
+        validateSecurity();
     }
     
     private void validateIdentityObjectTypes() {
@@ -82,5 +94,28 @@ public class ValidateDatabase {
         for (Category cat : categorySet) {
             entityManager.persist(cat);
         }
-    }    
+    }
+    
+    private void validateSecurity() throws IdentityException {
+        // Validate credential types
+        if (entityManager.createQuery("select t from IdentityObjectCredentialType t where t.name = :name")
+                .setParameter("name", "PASSWORD")
+                .getResultList().size() == 0) {
+                
+            IdentityObjectCredentialType PASSWORD = new IdentityObjectCredentialType();
+            PASSWORD.setName("PASSWORD");
+            entityManager.persist(PASSWORD);
+        }        
+        
+        Map<String, Object> sessionOptions = new HashMap<String, Object>();
+        sessionOptions.put(IdentitySessionProducer.SESSION_OPTION_ENTITY_MANAGER, entityManager);
+        
+
+        IdentitySession session = identitySessionFactory.createIdentitySession("default", sessionOptions);
+        
+        if (session.getPersistenceManager().findUser("shane") == null) {
+            User u = session.getPersistenceManager().createUser("shane");
+            session.getAttributesManager().updatePassword(u, "password");
+        }
+    }
 }

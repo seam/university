@@ -5,17 +5,20 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>  
     <title>Seam University</title>
     <link href="style/default.css" rel="stylesheet" type="text/css"/>
+    <link rel="SHORTCUT ICON" href="favicon.ico"/>        
+
+    <!-- Syntax Highlighter Resources - TODO: move these into a widget -->    
     <link href="style/sh/shCore.css" rel="stylesheet" type="text/css"/>
     <link href="style/sh/shThemeDefault.css" rel="stylesheet" type="text/css"/>
-    
-    <link rel="SHORTCUT ICON" href="favicon.ico"/>    
-      
-    <script type="text/javascript" src="seam/resource/remoting/resource/remote.js?compress=false"></script>
-    <script type="text/javascript" src="seam/resource/remoting/interface.js?org.jboss.seam.university.action.CategorySearch&org.jboss.seam.university.action.ContentSearch&org.jboss.seam.university.action.ContentAction&org.jboss.seam.xwidgets.action.IdentityAction"></script>
     <script type="text/javascript" src="script/sh/shCore.js"></script>
     <script type="text/javascript" src="script/sh/shBrushJava.js"></script>
     <script type="text/javascript" src="script/sh/shBrushJScript.js"></script>
     <script type="text/javascript" src="script/sh/shBrushXml.js"></script>
+        
+
+    <!-- Seam Remoting Resources - TODO: move these into their corresponding Seam widgets -->
+    <script type="text/javascript" src="seam/resource/remoting/resource/remote.js?compress=false"></script>
+    <script type="text/javascript" src="seam/resource/remoting/interface.js?org.jboss.seam.university.action.CategorySearch&org.jboss.seam.university.action.ContentSearch&org.jboss.seam.university.action.ContentAction&org.jboss.seam.xwidgets.action.IdentityAction"></script>
 
     <script src="xwidgets/resources/xw.js"></script>
     <script src="xwidgets/resources/org/xwidgets/core/eventobserver.js"></script>
@@ -27,6 +30,7 @@
     <script src="xwidgets/resources/org/jboss/seam/xwidgets/remotemethod.js"></script>
     <script src="xwidgets/resources/org/jboss/seam/xwidgets/identity.js"></script>
   </head>
+  
   <body>
     <div id="container">
       <div id="header">
@@ -40,23 +44,23 @@
     
     <div id="ajaxLoading"></div>
     
-  </body>  
-  
-  <script type="text/javascript">        
-    Seam.debug = true;  
+    <script type="text/javascript">        
+      Seam.debug = true;  
 
-    Seam.displayLoadingMessage = function() {
-      document.getElementById("ajaxLoading").style.display = "block";
-    };
+      Seam.displayLoadingMessage = function() {
+        document.getElementById("ajaxLoading").style.display = "block";
+      };
+      
+      Seam.hideLoadingMessage = function() {
+        document.getElementById("ajaxLoading").style.display = "none";    
+      };
+      
+      xw.open("dm_main.xw");    
+      xw.open("menu.xw", null, "menu");
+      xw.open("home.xw", null, "content");
+      xw.open("header.xw", null, "headerMenu");
+    </script>
     
-    Seam.hideLoadingMessage = function() {
-      document.getElementById("ajaxLoading").style.display = "none";    
-    };
+  </body>  
     
-    xw.open("dm_main.xw");    
-    xw.open("menu.xw", null, "menu");
-    xw.open("home.xw", null, "content");
-    xw.open("header.xw", null, "headerMenu");
-  </script>
-  
 </html>

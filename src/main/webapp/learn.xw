@@ -12,7 +12,7 @@
      ]]></xw:action>
    </xw:event> 
  
-   <h1>Learn</h1>
+   <h1>Search Seam University</h1>
    
    <seam:remoteMethod
      id="findContent"
@@ -24,9 +24,8 @@
    
    <p>
      <form>
-       Search 
-       <xw:inputText id="query" styleClass="long"/>
-       <xw:button id="findButton" label="Find" styleClass="standard">
+       <xw:inputText id="query" styleClass="long"/>       
+       <xw:button id="findButton" label="Search" styleClass="standard">
          <xw:event type="onclick"><xw:action type="script"><![CDATA[
            findContent.enabled = true;
            findContent.invoke(query.getValue());
@@ -39,7 +38,7 @@
    <xw:fragment id="resultList" rendered="false">
      <div>Search results</div>
      <xw:repeat value="#{searchResults}" var="result">
-       <div class="contentTitle">#{result.title}</div>
+       <div class="searchTitle">#{result.title}</div>
        <div class="contentSummary">#{result.summary}</div>
      </xw:repeat>
    </xw:fragment>

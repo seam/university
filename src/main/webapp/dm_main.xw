@@ -10,5 +10,7 @@
     refresh="600"/>
 
   <seam:identity id="identity"/>
+  
+  
 
 </xw:dataModule>

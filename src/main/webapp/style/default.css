@@ -167,6 +167,14 @@ div.contentFooter {
   font-size: 10px;
 }
 
+div.searchTitle {
+  color: #cf8238;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 4px;
+}
+
+
 a.menu, a.menu:visited {
   display: block;
   float: left;
