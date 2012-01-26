@@ -14,9 +14,9 @@
     <mode:sources jcr:primaryType="nt:unstructured">        
       <mode:source jcr:name="university-store"
         mode:classname="org.modeshape.connector.store.jpa.JpaSource"
-        mode:dataSourceJndiName="java:UniversityDS"
+        mode:dataSourceJndiName="java:jboss/datasources/ExampleDS"
         mode:model="Simple"
-        mode:dialect="org.hibernate.dialect.MySQLDialect"
+        mode:dialect="org.hibernate.dialect.H2Dialect"
         mode:referentialIntegrityEnforced="true"
         mode:showSql="true"
         mode:autoGenerateSchema="create"

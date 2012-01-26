@@ -9,7 +9,8 @@
    <name>Seam University</name>
 
    <properties>
-      <seam.version>3.1.0.Beta2</seam.version>
+      <seam.version>3.1.0.Final</seam.version>
+      <errai.version>2.0-SNAPSHOT</errai.version>
    </properties>
    
    <dependencyManagement>
@@ -38,26 +39,8 @@
       </dependency>
 
       <dependency>
-         <groupId>org.jboss.seam.config</groupId>
-         <artifactId>seam-config-xml</artifactId>
-      </dependency>
-
-      <dependency>
-         <groupId>org.jboss.seam.conversation</groupId>
-         <artifactId>seam-conversation-spi</artifactId>
-         <version>3.0.0.CR2</version>
-      </dependency>
-
-      <dependency>
-         <groupId>org.jboss.seam.conversation</groupId>
-         <artifactId>seam-conversation-weld</artifactId>
-         <version>3.0.0.CR2</version>
-      </dependency>
-
-      <dependency>
          <groupId>org.jboss.seam.remoting</groupId>
          <artifactId>seam-remoting</artifactId>
-         <version>3.1.0-SNAPSHOT</version>
       </dependency>
 
       <dependency>
@@ -110,13 +93,13 @@
       <dependency>
          <groupId>org.modeshape</groupId>
          <artifactId>modeshape-jcr</artifactId>
-         <version>2.6.0.Beta2</version>
+         <version>2.7.0.Final</version>
       </dependency>
         
       <dependency>
          <groupId>org.modeshape</groupId>
          <artifactId>modeshape-connector-store-jpa</artifactId>
-         <version>2.6.0.Beta2</version>
+         <version>2.7.0.Final</version>
          <exclusions>
             <exclusion>
                <groupId>org.hibernate</groupId>
@@ -137,18 +120,21 @@
          <groupId>org.jboss.seam.security</groupId>
          <artifactId>seam-security</artifactId>
          <scope>compile</scope>
-         <version>3.1.0-SNAPSHOT</version>
+      </dependency>
+
+      <dependency>
+         <groupId>org.jboss.seam.security</groupId>
+         <artifactId>seam-security-api</artifactId>
       </dependency>
 
       <dependency> 
          <groupId>org.jboss.seam.security</groupId>
          <artifactId>seam-security-external</artifactId>
-         <version>3.1.0-SNAPSHOT</version>
       </dependency>
       
       <dependency>
          <groupId>org.jboss.seam.xwidgets</groupId>
-         <artifactId>seam-xwidgets</artifactId>
+         <artifactId>seam-xwidgets-impl</artifactId>
          <version>3.1.0-SNAPSHOT</version>
       </dependency>    
       
@@ -174,32 +160,96 @@
       </dependency>
 
       <dependency>
-         <groupId>org.jboss.seam.servlet</groupId>
-         <artifactId>seam-servlet</artifactId>
+         <groupId>org.jboss.seam.conversation</groupId>
+	       <artifactId>seam-conversation-weld</artifactId>
       </dependency>
 
       <dependency>
-         <groupId>org.jboss.seam.servlet</groupId>
-         <artifactId>seam-servlet-api</artifactId>
+         <groupId>org.jboss.solder</groupId>
+         <artifactId>solder-api</artifactId>
       </dependency>
 
       <dependency>
-         <groupId>org.jboss.seam.solder</groupId>
-         <artifactId>seam-solder-api</artifactId>
-      </dependency>
-
-      <dependency>
-         <groupId>org.jboss.seam.solder</groupId>
-         <artifactId>seam-solder</artifactId>
+         <groupId>org.jboss.solder</groupId>
+         <artifactId>solder-impl</artifactId>
          <scope>compile</scope>
-         <version>3.1.0-SNAPSHOT</version>
       </dependency>
+      
+      <dependency>
+			   <groupId>org.jboss.errai</groupId>
+         <artifactId>errai-common</artifactId>
+			   <version>${errai.version}</version>
+		  </dependency>
+
+		  <dependency>
+			  <groupId>org.jboss.errai</groupId>
+			  <artifactId>errai-bus</artifactId>
+			  <version>${errai.version}</version>
+		  </dependency>
+      
+        <dependency>
+          <groupId>org.jboss.errai</groupId>
+          <artifactId>errai-ioc</artifactId>
+          <exclusions>
+            <exclusion>
+              <artifactId>jsr250-api</artifactId>
+              <groupId>javax.annotation</groupId>
+            </exclusion>
+            <exclusion>
+              <artifactId>javax.inject</artifactId>
+              <groupId>javax.inject</groupId>
+            </exclusion>
+          </exclusions>
+          <scope>compile</scope>
+          <version>${errai.version}</version>
+        </dependency>
+
+        <dependency>
+          <groupId>org.jboss.errai</groupId>
+          <artifactId>errai-tools</artifactId>
+          <!--scope>provided</scope-->
+          <version>${errai.version}</version>
+        </dependency>
+
+        <dependency>
+          <groupId>org.jboss.errai</groupId>
+          <artifactId>errai-cdi-client</artifactId>
+          <version>${errai.version}</version>
+          <!--<scope>provided</scope> -->
+        </dependency>
+
+        <dependency>
+          <groupId>org.jboss.errai</groupId>
+          <artifactId>errai-javax-enterprise</artifactId>
+          <version>${errai.version}</version>
+          <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+          <groupId>org.jboss.errai</groupId>
+          <artifactId>errai-weld-integration</artifactId>
+          <version>${errai.version}</version>
+          <exclusions>
+            <exclusion>
+              <groupId>org.jboss.errai</groupId>
+              <artifactId>errai-cdi-jetty</artifactId>
+            </exclusion>
+          </exclusions>
+        </dependency>
+        
+        <!-- AS7 Service Activator -->
+        <dependency>
+          <groupId>org.jboss.errai</groupId>
+          <artifactId>jboss7-support</artifactId>
+          <version>${errai.version}</version>
+        </dependency>         
 
    </dependencies>
    
    <build>
       <finalName>seam-university</finalName>
-      <plugins>
+      <plugins>   
+      
          <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-surefire-plugin</artifactId>
@@ -221,10 +271,11 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-war-plugin</artifactId>
           <configuration>
+            <packagingExcludes>**/javax/**/*.*,**/client/local/**/*.class</packagingExcludes>
             <failOnMissingWebXml>false</failOnMissingWebXml>
             <archive>
               <manifestEntries>
-                <Dependencies>org.slf4j.impl,org.jboss.logging,org.jboss.logmanager</Dependencies>
+                <Dependencies>org.jboss.as.naming,org.jboss.as.server,org.jboss.msc,org.slf4j.impl,org.jboss.logging,org.jboss.logmanager</Dependencies>
               </manifestEntries>
             </archive>
 

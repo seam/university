@@ -14,8 +14,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.jboss.seam.security.management.picketlink.IdentitySessionProducer;
-import org.jboss.seam.servlet.WebApplication;
-import org.jboss.seam.servlet.event.Initialized;
+import org.jboss.solder.servlet.WebApplication;
+import org.jboss.solder.servlet.event.Initialized;
 import org.jboss.seam.transaction.Transactional;
 import org.jboss.seam.university.model.Category;
 import org.jboss.seam.university.model.Category.ContentEditor;

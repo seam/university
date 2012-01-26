@@ -80,11 +80,7 @@
         
         <xw:fileUpload caption="Attach a file" uploadPath="content/upload"/>
       
-        <xw:richEdit id="content">
-          <xw:event type="onChange">
-            <xw:action type="script"></xw:action>
-          </xw:event>
-        </xw:richEdit>
+        <xw:richEdit id="content"/>
         
         <div class="buttonBar">
           <xw:button label="Previous" styleClass="standard">

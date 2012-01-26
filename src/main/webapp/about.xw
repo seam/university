@@ -5,6 +5,36 @@
  
    <h1>About Seam University</h1>
   
+  <br/><br/>
   
+  
+  <p>Enter a view definition then click the "Render" button to render</p>
+   
+  
+   <textarea id="viewDef" style="height:200px;width:600px"/>
+   
+   <br/>
+   
+    <xw:button label="Render" styleClass="standard">
+      <xw:event type="onclick"><xw:action type="script"><![CDATA[
+
+        var rootNode = xw.Sys.parseXml(document.getElementById("viewDef").value).documentElement;
+        if (rootNode) {         
+          // Parse the XML resource definition and store it in the resource definition cache
+          xw.Controller.resourceDefs["custom"] = new xw.DefinitionParser().parse(rootNode);
+          
+          xw.open("custom", null, "test");
+        }
+      ]]></xw:action></xw:event>    
+    </xw:button>        
+    
+    <br/>
+    
+    <p>Rendered form output:</p>
+
+    <div id="test">
+    
+    
+    </div>        
 
 </xw:view>

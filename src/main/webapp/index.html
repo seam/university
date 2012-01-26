@@ -6,6 +6,10 @@
     <title>Seam University</title>
     <link href="style/default.css" rel="stylesheet" type="text/css"/>
     <link rel="SHORTCUT ICON" href="favicon.ico"/>        
+    
+    <!-- Errai -->
+    <script type="text/javascript" language="javascript"
+            src="script/errai-js/org.jboss.errai.js.ErraiJS/org.jboss.errai.js.ErraiJS.nocache.js"></script>
 
     <!-- Syntax Highlighter Resources - TODO: move these into a widget -->    
     <link href="style/sh/shCore.css" rel="stylesheet" type="text/css"/>
@@ -20,15 +24,14 @@
     <script type="text/javascript" src="seam/resource/remoting/resource/remote.js?compress=false"></script>
     <script type="text/javascript" src="seam/resource/remoting/interface.js?org.jboss.seam.university.action.CategorySearch&org.jboss.seam.university.action.ContentSearch&org.jboss.seam.university.action.ContentAction&org.jboss.seam.xwidgets.action.IdentityAction"></script>
 
-    <script src="xwidgets/resources/xw.js"></script>
-    <script src="xwidgets/resources/org/xwidgets/core/eventobserver.js"></script>
-    <script src="xwidgets/resources/org/xwidgets/core/fragment.js"></script>
-    <script src="xwidgets/resources/org/xwidgets/core/repeat.js"></script>
-    <script src="xwidgets/resources/org/xwidgets/core/select.js"></script>
-    <script src="xwidgets/resources/org/xwidgets/core/selectitems.js"></script>
-    <script src="xwidgets/resources/org/xwidgets/core/tabpanel.js"></script>
-    <script src="xwidgets/resources/org/jboss/seam/xwidgets/remotemethod.js"></script>
-    <script src="xwidgets/resources/org/jboss/seam/xwidgets/identity.js"></script>
+    <script src="script/xw/xw.js"></script>
+    <script src="script/xw/org/xwidgets/core/eventobserver.js"></script>
+    <script src="script/xw/org/xwidgets/core/fragment.js"></script>
+    <script src="script/xw/org/xwidgets/core/repeat.js"></script>
+    <script src="script/xw/org/xwidgets/core/select.js"></script>
+    <script src="script/xw/org/xwidgets/core/selectitems.js"></script>
+    <script src="script/xw/org/xwidgets/core/tabpanel.js"></script>
+    <script src="script/xw/org/xwidgets/errai/lookupsubscriber.js"></script>
   </head>
   
   <body>
@@ -59,8 +62,16 @@
       xw.open("menu.xw", null, "menu");
       xw.open("home.xw", null, "content");
       xw.open("header.xw", null, "headerMenu");
+      
+      /**
+       * erraiOnLoad() is called when the bus in a ready-to-go state.
+       */
+      function erraiOnLoad() {
+        xw.Event.fire("erraiOnLoad");
+      }      
     </script>
     
+
   </body>  
     
 </html>

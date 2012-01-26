@@ -1,5 +1,7 @@
 package org.jboss.seam.university.model;
 
+import static org.jboss.seam.security.annotations.management.EntityType.IDENTITY_CREDENTIAL;
+
 import java.io.Serializable;
 
 import javax.persistence.Entity;
@@ -8,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.jboss.seam.security.annotations.management.IdentityEntity;
 import org.jboss.seam.security.annotations.management.IdentityProperty;
 import org.jboss.seam.security.annotations.management.PropertyType;
 
@@ -16,7 +19,7 @@ import org.jboss.seam.security.annotations.management.PropertyType;
  * 
  * @author Shane Bryzak
  */
-@Entity
+@Entity @IdentityEntity(IDENTITY_CREDENTIAL)
 public class IdentityObjectCredential implements Serializable
 {
    private static final long serialVersionUID = 1359292319831314803L;
