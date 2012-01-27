@@ -139,12 +139,6 @@
       </dependency>
       
       <dependency>
-         <groupId>org.jboss.seam.xwidgets</groupId>
-         <artifactId>seam-xwidgets-impl</artifactId>
-         <version>3.1.0-SNAPSHOT</version>
-      </dependency>    
-      
-      <dependency>
          <groupId>org.xwidgets</groupId>
          <artifactId>xwidgets</artifactId>
          <version>1.0.0-SNAPSHOT</version>

@@ -8,7 +8,7 @@ import org.jboss.seam.security.Identity;
 import org.jboss.seam.security.events.PostAuthenticateEvent;
 import org.jboss.seam.security.external.openid.OpenIdUser;
 import org.jboss.seam.transaction.Transactional;
-import org.jboss.seam.xwidgets.dto.AuthResult;
+//import org.jboss.seam.xwidgets.dto.AuthResult;
 import org.picketlink.idm.api.IdentitySession;
 import org.picketlink.idm.api.User;
 
@@ -21,7 +21,7 @@ import org.picketlink.idm.api.User;
 public @RequestScoped class MemberValidator {
 
     @Inject Identity identity;
-    @Inject AuthResult authResult;
+//    @Inject AuthResult authResult;
     @Inject IdentitySession identitySession;
     
     public @Transactional void observePostAuthenticate(@Observes PostAuthenticateEvent event) {
@@ -29,8 +29,8 @@ public @RequestScoped class MemberValidator {
         
         if (user instanceof OpenIdUser) {
             OpenIdUser oid = (OpenIdUser) user;
-            authResult.setAttribute("firstName", oid.getAttribute("firstName"));
-            authResult.setAttribute("lastName", oid.getAttribute("lastName"));
+//            authResult.setAttribute("firstName", oid.getAttribute("firstName"));
+//            authResult.setAttribute("lastName", oid.getAttribute("lastName"));
         }
     }
 }
