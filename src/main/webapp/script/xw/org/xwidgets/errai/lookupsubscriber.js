@@ -22,6 +22,7 @@ org.xwidgets.errai.LookupSubscriber.prototype.open = function() {
 
 org.xwidgets.errai.LookupSubscriber.prototype.init = function() {
   this.bus = new errai.MsgBus();
+  this.bus.automarshal(false);
   
   var that = this;
   var cb = function(msg) { 
