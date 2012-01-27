@@ -39,6 +39,12 @@
       </dependency>
 
       <dependency>
+         <groupId>javax.validation</groupId>
+	 <artifactId>validation-api</artifactId>
+	 <scope>provided</scope>
+      </dependency>
+
+      <dependency>
          <groupId>org.jboss.seam.remoting</groupId>
          <artifactId>seam-remoting</artifactId>
       </dependency>
@@ -59,10 +65,10 @@
          <artifactId>seam-transaction</artifactId>
       </dependency>
       
-      <dependency>
+      <!--dependency>
          <groupId>org.jboss.seam.validation</groupId>
          <artifactId>seam-validation</artifactId>
-      </dependency>
+      </dependency-->
 
       <dependency>
          <groupId>org.hibernate.javax.persistence</groupId>
@@ -176,16 +182,16 @@
       </dependency>
       
       <dependency>
-			   <groupId>org.jboss.errai</groupId>
+	 <groupId>org.jboss.errai</groupId>
          <artifactId>errai-common</artifactId>
-			   <version>${errai.version}</version>
-		  </dependency>
+	 <version>${errai.version}</version>
+      </dependency>
 
-		  <dependency>
-			  <groupId>org.jboss.errai</groupId>
-			  <artifactId>errai-bus</artifactId>
-			  <version>${errai.version}</version>
-		  </dependency>
+      <dependency>
+	  <groupId>org.jboss.errai</groupId>
+	  <artifactId>errai-bus</artifactId>
+	  <version>${errai.version}</version>
+      </dependency>
       
         <dependency>
           <groupId>org.jboss.errai</groupId>

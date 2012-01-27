@@ -19,10 +19,12 @@ public class CategoryLoader implements MessageCallback {
                 MessageBuilder.createConversation(message)
                     .toSubject("CategoryService")
                     .command("load")
-                    //.with("categories", categorySearch.getCategories())
+                    .with("categories", categorySearch.getCategories())
                     .done()
                     .reply();                
        
     }
+    
+    
     
 }

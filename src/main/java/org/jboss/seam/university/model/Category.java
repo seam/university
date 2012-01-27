@@ -14,7 +14,7 @@ import org.jboss.errai.common.client.api.annotations.Portable;
  * @author Shane Bryzak
  *
  */
-//@Portable
+@Portable
 @Entity
 public class Category implements Serializable {
     private static final long serialVersionUID = 8122857831607922307L;
