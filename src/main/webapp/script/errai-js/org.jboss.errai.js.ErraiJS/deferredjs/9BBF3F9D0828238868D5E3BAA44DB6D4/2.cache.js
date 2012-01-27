@@ -1,0 +1,1 @@
+$entry(com_google_gwt_core_client_impl_AsyncFragmentLoader_onLoad__IV)(2);
